@@ -1,0 +1,6 @@
+tests/tests.exe
+build/bin/*
+build/obj/*
+runtime.dll
+env/
+__pycache__/

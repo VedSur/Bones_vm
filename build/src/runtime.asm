@@ -16,735 +16,735 @@ run:
     ._loop:
     mov bx, word [rsi]
     add rsi, 2
-    cmp bx, 0
+    cmp bx, 0x0
     je .i_exit
-    cmp bx, 1
+    cmp bx, 0x1
     je .i_nop
-    cmp bx, 2
+    cmp bx, 0x2
     je .i_push_rax
-    cmp bx, 3
+    cmp bx, 0x3
     je .i_push_rcx
-    cmp bx, 4
+    cmp bx, 0x4
     je .i_push_rdx
-    cmp bx, 5
+    cmp bx, 0x5
     je .i_push_r8
-    cmp bx, 6
+    cmp bx, 0x6
     je .i_push_r9
-    cmp bx, 7
+    cmp bx, 0x7
     je .i_push_rsp
-    cmp bx, 8
+    cmp bx, 0x8
     je .i_push_rbp
-    cmp bx, 9
+    cmp bx, 0x9
     je .i_pop_rax
-    cmp bx, 10
+    cmp bx, 0xa
     je .i_pop_rcx
-    cmp bx, 11
+    cmp bx, 0xb
     je .i_pop_rdx
-    cmp bx, 12
+    cmp bx, 0xc
     je .i_pop_r8
-    cmp bx, 13
+    cmp bx, 0xd
     je .i_pop_r9
-    cmp bx, 14
+    cmp bx, 0xe
     je .i_pop_rsp
-    cmp bx, 15
+    cmp bx, 0xf
     je .i_pop_rbp
-    cmp bx, 16
+    cmp bx, 0x10
     je .i_dref_rax
-    cmp bx, 17
+    cmp bx, 0x11
     je .i_dref_rcx
-    cmp bx, 18
+    cmp bx, 0x12
     je .i_dref_rdx
-    cmp bx, 19
+    cmp bx, 0x13
     je .i_dref_r8
-    cmp bx, 20
+    cmp bx, 0x14
     je .i_dref_r9
-    cmp bx, 21
+    cmp bx, 0x15
     je .i_dref_rsp
-    cmp bx, 22
+    cmp bx, 0x16
     je .i_dref_rbp
-    cmp bx, 23
+    cmp bx, 0x17
     je .i_mov_rax_t
-    cmp bx, 24
+    cmp bx, 0x18
     je .i_mov_rcx_t
-    cmp bx, 25
+    cmp bx, 0x19
     je .i_mov_rdx_t
-    cmp bx, 26
+    cmp bx, 0x1a
     je .i_mov_r8_t
-    cmp bx, 27
+    cmp bx, 0x1b
     je .i_mov_r9_t
-    cmp bx, 28
+    cmp bx, 0x1c
     je .i_mov_rsp_t
-    cmp bx, 29
+    cmp bx, 0x1d
     je .i_mov_rbp_t
-    cmp bx, 30
+    cmp bx, 0x1e
     je .i_add_rax_t
-    cmp bx, 31
+    cmp bx, 0x1f
     je .i_add_rcx_t
-    cmp bx, 32
+    cmp bx, 0x20
     je .i_add_rdx_t
-    cmp bx, 33
+    cmp bx, 0x21
     je .i_add_r8_t
-    cmp bx, 34
+    cmp bx, 0x22
     je .i_add_r9_t
-    cmp bx, 35
+    cmp bx, 0x23
     je .i_add_rsp_t
-    cmp bx, 36
+    cmp bx, 0x24
     je .i_add_rbp_t
-    cmp bx, 37
+    cmp bx, 0x25
     je .i_sub_rax_t
-    cmp bx, 38
+    cmp bx, 0x26
     je .i_sub_rcx_t
-    cmp bx, 39
+    cmp bx, 0x27
     je .i_sub_rdx_t
-    cmp bx, 40
+    cmp bx, 0x28
     je .i_sub_r8_t
-    cmp bx, 41
+    cmp bx, 0x29
     je .i_sub_r9_t
-    cmp bx, 42
+    cmp bx, 0x2a
     je .i_sub_rsp_t
-    cmp bx, 43
+    cmp bx, 0x2b
     je .i_sub_rbp_t
-    cmp bx, 44
+    cmp bx, 0x2c
     je .i_imul_rax_t
-    cmp bx, 45
+    cmp bx, 0x2d
     je .i_imul_rcx_t
-    cmp bx, 46
+    cmp bx, 0x2e
     je .i_imul_rdx_t
-    cmp bx, 47
+    cmp bx, 0x2f
     je .i_imul_r8_t
-    cmp bx, 48
+    cmp bx, 0x30
     je .i_imul_r9_t
-    cmp bx, 49
+    cmp bx, 0x31
     je .i_imul_rsp_t
-    cmp bx, 50
+    cmp bx, 0x32
     je .i_imul_rbp_t
-    cmp bx, 51
+    cmp bx, 0x33
     je .i_cmp_rax_t
-    cmp bx, 52
+    cmp bx, 0x34
     je .i_cmp_rcx_t
-    cmp bx, 53
+    cmp bx, 0x35
     je .i_cmp_rdx_t
-    cmp bx, 54
+    cmp bx, 0x36
     je .i_cmp_r8_t
-    cmp bx, 55
+    cmp bx, 0x37
     je .i_cmp_r9_t
-    cmp bx, 56
+    cmp bx, 0x38
     je .i_cmp_rsp_t
-    cmp bx, 57
+    cmp bx, 0x39
     je .i_cmp_rbp_t
-    cmp bx, 58
+    cmp bx, 0x3a
     je .i_mov_rax_rax
-    cmp bx, 59
+    cmp bx, 0x3b
     je .i_mov_rax_rcx
-    cmp bx, 60
+    cmp bx, 0x3c
     je .i_mov_rax_rdx
-    cmp bx, 61
+    cmp bx, 0x3d
     je .i_mov_rax_r8
-    cmp bx, 62
+    cmp bx, 0x3e
     je .i_mov_rax_r9
-    cmp bx, 63
+    cmp bx, 0x3f
     je .i_mov_rax_rsp
-    cmp bx, 64
+    cmp bx, 0x40
     je .i_mov_rax_rbp
-    cmp bx, 65
+    cmp bx, 0x41
     je .i_mov_rcx_rax
-    cmp bx, 66
+    cmp bx, 0x42
     je .i_mov_rcx_rcx
-    cmp bx, 67
+    cmp bx, 0x43
     je .i_mov_rcx_rdx
-    cmp bx, 68
+    cmp bx, 0x44
     je .i_mov_rcx_r8
-    cmp bx, 69
+    cmp bx, 0x45
     je .i_mov_rcx_r9
-    cmp bx, 70
+    cmp bx, 0x46
     je .i_mov_rcx_rsp
-    cmp bx, 71
+    cmp bx, 0x47
     je .i_mov_rcx_rbp
-    cmp bx, 72
+    cmp bx, 0x48
     je .i_mov_rdx_rax
-    cmp bx, 73
+    cmp bx, 0x49
     je .i_mov_rdx_rcx
-    cmp bx, 74
+    cmp bx, 0x4a
     je .i_mov_rdx_rdx
-    cmp bx, 75
+    cmp bx, 0x4b
     je .i_mov_rdx_r8
-    cmp bx, 76
+    cmp bx, 0x4c
     je .i_mov_rdx_r9
-    cmp bx, 77
+    cmp bx, 0x4d
     je .i_mov_rdx_rsp
-    cmp bx, 78
+    cmp bx, 0x4e
     je .i_mov_rdx_rbp
-    cmp bx, 79
+    cmp bx, 0x4f
     je .i_mov_r8_rax
-    cmp bx, 80
+    cmp bx, 0x50
     je .i_mov_r8_rcx
-    cmp bx, 81
+    cmp bx, 0x51
     je .i_mov_r8_rdx
-    cmp bx, 82
+    cmp bx, 0x52
     je .i_mov_r8_r8
-    cmp bx, 83
+    cmp bx, 0x53
     je .i_mov_r8_r9
-    cmp bx, 84
+    cmp bx, 0x54
     je .i_mov_r8_rsp
-    cmp bx, 85
+    cmp bx, 0x55
     je .i_mov_r8_rbp
-    cmp bx, 86
+    cmp bx, 0x56
     je .i_mov_r9_rax
-    cmp bx, 87
+    cmp bx, 0x57
     je .i_mov_r9_rcx
-    cmp bx, 88
+    cmp bx, 0x58
     je .i_mov_r9_rdx
-    cmp bx, 89
+    cmp bx, 0x59
     je .i_mov_r9_r8
-    cmp bx, 90
+    cmp bx, 0x5a
     je .i_mov_r9_r9
-    cmp bx, 91
+    cmp bx, 0x5b
     je .i_mov_r9_rsp
-    cmp bx, 92
+    cmp bx, 0x5c
     je .i_mov_r9_rbp
-    cmp bx, 93
+    cmp bx, 0x5d
     je .i_mov_rsp_rax
-    cmp bx, 94
+    cmp bx, 0x5e
     je .i_mov_rsp_rcx
-    cmp bx, 95
+    cmp bx, 0x5f
     je .i_mov_rsp_rdx
-    cmp bx, 96
+    cmp bx, 0x60
     je .i_mov_rsp_r8
-    cmp bx, 97
+    cmp bx, 0x61
     je .i_mov_rsp_r9
-    cmp bx, 98
+    cmp bx, 0x62
     je .i_mov_rsp_rsp
-    cmp bx, 99
+    cmp bx, 0x63
     je .i_mov_rsp_rbp
-    cmp bx, 100
+    cmp bx, 0x64
     je .i_mov_rbp_rax
-    cmp bx, 101
+    cmp bx, 0x65
     je .i_mov_rbp_rcx
-    cmp bx, 102
+    cmp bx, 0x66
     je .i_mov_rbp_rdx
-    cmp bx, 103
+    cmp bx, 0x67
     je .i_mov_rbp_r8
-    cmp bx, 104
+    cmp bx, 0x68
     je .i_mov_rbp_r9
-    cmp bx, 105
+    cmp bx, 0x69
     je .i_mov_rbp_rsp
-    cmp bx, 106
+    cmp bx, 0x6a
     je .i_mov_rbp_rbp
-    cmp bx, 107
+    cmp bx, 0x6b
     je .i_add_rax_rax
-    cmp bx, 108
+    cmp bx, 0x6c
     je .i_add_rax_rcx
-    cmp bx, 109
+    cmp bx, 0x6d
     je .i_add_rax_rdx
-    cmp bx, 110
+    cmp bx, 0x6e
     je .i_add_rax_r8
-    cmp bx, 111
+    cmp bx, 0x6f
     je .i_add_rax_r9
-    cmp bx, 112
+    cmp bx, 0x70
     je .i_add_rax_rsp
-    cmp bx, 113
+    cmp bx, 0x71
     je .i_add_rax_rbp
-    cmp bx, 114
+    cmp bx, 0x72
     je .i_add_rcx_rax
-    cmp bx, 115
+    cmp bx, 0x73
     je .i_add_rcx_rcx
-    cmp bx, 116
+    cmp bx, 0x74
     je .i_add_rcx_rdx
-    cmp bx, 117
+    cmp bx, 0x75
     je .i_add_rcx_r8
-    cmp bx, 118
+    cmp bx, 0x76
     je .i_add_rcx_r9
-    cmp bx, 119
+    cmp bx, 0x77
     je .i_add_rcx_rsp
-    cmp bx, 120
+    cmp bx, 0x78
     je .i_add_rcx_rbp
-    cmp bx, 121
+    cmp bx, 0x79
     je .i_add_rdx_rax
-    cmp bx, 122
+    cmp bx, 0x7a
     je .i_add_rdx_rcx
-    cmp bx, 123
+    cmp bx, 0x7b
     je .i_add_rdx_rdx
-    cmp bx, 124
+    cmp bx, 0x7c
     je .i_add_rdx_r8
-    cmp bx, 125
+    cmp bx, 0x7d
     je .i_add_rdx_r9
-    cmp bx, 126
+    cmp bx, 0x7e
     je .i_add_rdx_rsp
-    cmp bx, 127
+    cmp bx, 0x7f
     je .i_add_rdx_rbp
-    cmp bx, 128
+    cmp bx, 0x80
     je .i_add_r8_rax
-    cmp bx, 129
+    cmp bx, 0x81
     je .i_add_r8_rcx
-    cmp bx, 130
+    cmp bx, 0x82
     je .i_add_r8_rdx
-    cmp bx, 131
+    cmp bx, 0x83
     je .i_add_r8_r8
-    cmp bx, 132
+    cmp bx, 0x84
     je .i_add_r8_r9
-    cmp bx, 133
+    cmp bx, 0x85
     je .i_add_r8_rsp
-    cmp bx, 134
+    cmp bx, 0x86
     je .i_add_r8_rbp
-    cmp bx, 135
+    cmp bx, 0x87
     je .i_add_r9_rax
-    cmp bx, 136
+    cmp bx, 0x88
     je .i_add_r9_rcx
-    cmp bx, 137
+    cmp bx, 0x89
     je .i_add_r9_rdx
-    cmp bx, 138
+    cmp bx, 0x8a
     je .i_add_r9_r8
-    cmp bx, 139
+    cmp bx, 0x8b
     je .i_add_r9_r9
-    cmp bx, 140
+    cmp bx, 0x8c
     je .i_add_r9_rsp
-    cmp bx, 141
+    cmp bx, 0x8d
     je .i_add_r9_rbp
-    cmp bx, 142
+    cmp bx, 0x8e
     je .i_add_rsp_rax
-    cmp bx, 143
+    cmp bx, 0x8f
     je .i_add_rsp_rcx
-    cmp bx, 144
+    cmp bx, 0x90
     je .i_add_rsp_rdx
-    cmp bx, 145
+    cmp bx, 0x91
     je .i_add_rsp_r8
-    cmp bx, 146
+    cmp bx, 0x92
     je .i_add_rsp_r9
-    cmp bx, 147
+    cmp bx, 0x93
     je .i_add_rsp_rsp
-    cmp bx, 148
+    cmp bx, 0x94
     je .i_add_rsp_rbp
-    cmp bx, 149
+    cmp bx, 0x95
     je .i_add_rbp_rax
-    cmp bx, 150
+    cmp bx, 0x96
     je .i_add_rbp_rcx
-    cmp bx, 151
+    cmp bx, 0x97
     je .i_add_rbp_rdx
-    cmp bx, 152
+    cmp bx, 0x98
     je .i_add_rbp_r8
-    cmp bx, 153
+    cmp bx, 0x99
     je .i_add_rbp_r9
-    cmp bx, 154
+    cmp bx, 0x9a
     je .i_add_rbp_rsp
-    cmp bx, 155
+    cmp bx, 0x9b
     je .i_add_rbp_rbp
-    cmp bx, 156
+    cmp bx, 0x9c
     je .i_sub_rax_rax
-    cmp bx, 157
+    cmp bx, 0x9d
     je .i_sub_rax_rcx
-    cmp bx, 158
+    cmp bx, 0x9e
     je .i_sub_rax_rdx
-    cmp bx, 159
+    cmp bx, 0x9f
     je .i_sub_rax_r8
-    cmp bx, 160
+    cmp bx, 0xa0
     je .i_sub_rax_r9
-    cmp bx, 161
+    cmp bx, 0xa1
     je .i_sub_rax_rsp
-    cmp bx, 162
+    cmp bx, 0xa2
     je .i_sub_rax_rbp
-    cmp bx, 163
+    cmp bx, 0xa3
     je .i_sub_rcx_rax
-    cmp bx, 164
+    cmp bx, 0xa4
     je .i_sub_rcx_rcx
-    cmp bx, 165
+    cmp bx, 0xa5
     je .i_sub_rcx_rdx
-    cmp bx, 166
+    cmp bx, 0xa6
     je .i_sub_rcx_r8
-    cmp bx, 167
+    cmp bx, 0xa7
     je .i_sub_rcx_r9
-    cmp bx, 168
+    cmp bx, 0xa8
     je .i_sub_rcx_rsp
-    cmp bx, 169
+    cmp bx, 0xa9
     je .i_sub_rcx_rbp
-    cmp bx, 170
+    cmp bx, 0xaa
     je .i_sub_rdx_rax
-    cmp bx, 171
+    cmp bx, 0xab
     je .i_sub_rdx_rcx
-    cmp bx, 172
+    cmp bx, 0xac
     je .i_sub_rdx_rdx
-    cmp bx, 173
+    cmp bx, 0xad
     je .i_sub_rdx_r8
-    cmp bx, 174
+    cmp bx, 0xae
     je .i_sub_rdx_r9
-    cmp bx, 175
+    cmp bx, 0xaf
     je .i_sub_rdx_rsp
-    cmp bx, 176
+    cmp bx, 0xb0
     je .i_sub_rdx_rbp
-    cmp bx, 177
+    cmp bx, 0xb1
     je .i_sub_r8_rax
-    cmp bx, 178
+    cmp bx, 0xb2
     je .i_sub_r8_rcx
-    cmp bx, 179
+    cmp bx, 0xb3
     je .i_sub_r8_rdx
-    cmp bx, 180
+    cmp bx, 0xb4
     je .i_sub_r8_r8
-    cmp bx, 181
+    cmp bx, 0xb5
     je .i_sub_r8_r9
-    cmp bx, 182
+    cmp bx, 0xb6
     je .i_sub_r8_rsp
-    cmp bx, 183
+    cmp bx, 0xb7
     je .i_sub_r8_rbp
-    cmp bx, 184
+    cmp bx, 0xb8
     je .i_sub_r9_rax
-    cmp bx, 185
+    cmp bx, 0xb9
     je .i_sub_r9_rcx
-    cmp bx, 186
+    cmp bx, 0xba
     je .i_sub_r9_rdx
-    cmp bx, 187
+    cmp bx, 0xbb
     je .i_sub_r9_r8
-    cmp bx, 188
+    cmp bx, 0xbc
     je .i_sub_r9_r9
-    cmp bx, 189
+    cmp bx, 0xbd
     je .i_sub_r9_rsp
-    cmp bx, 190
+    cmp bx, 0xbe
     je .i_sub_r9_rbp
-    cmp bx, 191
+    cmp bx, 0xbf
     je .i_sub_rsp_rax
-    cmp bx, 192
+    cmp bx, 0xc0
     je .i_sub_rsp_rcx
-    cmp bx, 193
+    cmp bx, 0xc1
     je .i_sub_rsp_rdx
-    cmp bx, 194
+    cmp bx, 0xc2
     je .i_sub_rsp_r8
-    cmp bx, 195
+    cmp bx, 0xc3
     je .i_sub_rsp_r9
-    cmp bx, 196
+    cmp bx, 0xc4
     je .i_sub_rsp_rsp
-    cmp bx, 197
+    cmp bx, 0xc5
     je .i_sub_rsp_rbp
-    cmp bx, 198
+    cmp bx, 0xc6
     je .i_sub_rbp_rax
-    cmp bx, 199
+    cmp bx, 0xc7
     je .i_sub_rbp_rcx
-    cmp bx, 200
+    cmp bx, 0xc8
     je .i_sub_rbp_rdx
-    cmp bx, 201
+    cmp bx, 0xc9
     je .i_sub_rbp_r8
-    cmp bx, 202
+    cmp bx, 0xca
     je .i_sub_rbp_r9
-    cmp bx, 203
+    cmp bx, 0xcb
     je .i_sub_rbp_rsp
-    cmp bx, 204
+    cmp bx, 0xcc
     je .i_sub_rbp_rbp
-    cmp bx, 205
+    cmp bx, 0xcd
     je .i_imul_rax_rax
-    cmp bx, 206
+    cmp bx, 0xce
     je .i_imul_rax_rcx
-    cmp bx, 207
+    cmp bx, 0xcf
     je .i_imul_rax_rdx
-    cmp bx, 208
+    cmp bx, 0xd0
     je .i_imul_rax_r8
-    cmp bx, 209
+    cmp bx, 0xd1
     je .i_imul_rax_r9
-    cmp bx, 210
+    cmp bx, 0xd2
     je .i_imul_rax_rsp
-    cmp bx, 211
+    cmp bx, 0xd3
     je .i_imul_rax_rbp
-    cmp bx, 212
+    cmp bx, 0xd4
     je .i_imul_rcx_rax
-    cmp bx, 213
+    cmp bx, 0xd5
     je .i_imul_rcx_rcx
-    cmp bx, 214
+    cmp bx, 0xd6
     je .i_imul_rcx_rdx
-    cmp bx, 215
+    cmp bx, 0xd7
     je .i_imul_rcx_r8
-    cmp bx, 216
+    cmp bx, 0xd8
     je .i_imul_rcx_r9
-    cmp bx, 217
+    cmp bx, 0xd9
     je .i_imul_rcx_rsp
-    cmp bx, 218
+    cmp bx, 0xda
     je .i_imul_rcx_rbp
-    cmp bx, 219
+    cmp bx, 0xdb
     je .i_imul_rdx_rax
-    cmp bx, 220
+    cmp bx, 0xdc
     je .i_imul_rdx_rcx
-    cmp bx, 221
+    cmp bx, 0xdd
     je .i_imul_rdx_rdx
-    cmp bx, 222
+    cmp bx, 0xde
     je .i_imul_rdx_r8
-    cmp bx, 223
+    cmp bx, 0xdf
     je .i_imul_rdx_r9
-    cmp bx, 224
+    cmp bx, 0xe0
     je .i_imul_rdx_rsp
-    cmp bx, 225
+    cmp bx, 0xe1
     je .i_imul_rdx_rbp
-    cmp bx, 226
+    cmp bx, 0xe2
     je .i_imul_r8_rax
-    cmp bx, 227
+    cmp bx, 0xe3
     je .i_imul_r8_rcx
-    cmp bx, 228
+    cmp bx, 0xe4
     je .i_imul_r8_rdx
-    cmp bx, 229
+    cmp bx, 0xe5
     je .i_imul_r8_r8
-    cmp bx, 230
+    cmp bx, 0xe6
     je .i_imul_r8_r9
-    cmp bx, 231
+    cmp bx, 0xe7
     je .i_imul_r8_rsp
-    cmp bx, 232
+    cmp bx, 0xe8
     je .i_imul_r8_rbp
-    cmp bx, 233
+    cmp bx, 0xe9
     je .i_imul_r9_rax
-    cmp bx, 234
+    cmp bx, 0xea
     je .i_imul_r9_rcx
-    cmp bx, 235
+    cmp bx, 0xeb
     je .i_imul_r9_rdx
-    cmp bx, 236
+    cmp bx, 0xec
     je .i_imul_r9_r8
-    cmp bx, 237
+    cmp bx, 0xed
     je .i_imul_r9_r9
-    cmp bx, 238
+    cmp bx, 0xee
     je .i_imul_r9_rsp
-    cmp bx, 239
+    cmp bx, 0xef
     je .i_imul_r9_rbp
-    cmp bx, 240
+    cmp bx, 0xf0
     je .i_imul_rsp_rax
-    cmp bx, 241
+    cmp bx, 0xf1
     je .i_imul_rsp_rcx
-    cmp bx, 242
+    cmp bx, 0xf2
     je .i_imul_rsp_rdx
-    cmp bx, 243
+    cmp bx, 0xf3
     je .i_imul_rsp_r8
-    cmp bx, 244
+    cmp bx, 0xf4
     je .i_imul_rsp_r9
-    cmp bx, 245
+    cmp bx, 0xf5
     je .i_imul_rsp_rsp
-    cmp bx, 246
+    cmp bx, 0xf6
     je .i_imul_rsp_rbp
-    cmp bx, 247
+    cmp bx, 0xf7
     je .i_imul_rbp_rax
-    cmp bx, 248
+    cmp bx, 0xf8
     je .i_imul_rbp_rcx
-    cmp bx, 249
+    cmp bx, 0xf9
     je .i_imul_rbp_rdx
-    cmp bx, 250
+    cmp bx, 0xfa
     je .i_imul_rbp_r8
-    cmp bx, 251
+    cmp bx, 0xfb
     je .i_imul_rbp_r9
-    cmp bx, 252
+    cmp bx, 0xfc
     je .i_imul_rbp_rsp
-    cmp bx, 253
+    cmp bx, 0xfd
     je .i_imul_rbp_rbp
-    cmp bx, 254
+    cmp bx, 0xfe
     je .i_cmp_rax_rax
-    cmp bx, 255
+    cmp bx, 0xff
     je .i_cmp_rax_rcx
-    cmp bx, 256
+    cmp bx, 0x100
     je .i_cmp_rax_rdx
-    cmp bx, 257
+    cmp bx, 0x101
     je .i_cmp_rax_r8
-    cmp bx, 258
+    cmp bx, 0x102
     je .i_cmp_rax_r9
-    cmp bx, 259
+    cmp bx, 0x103
     je .i_cmp_rax_rsp
-    cmp bx, 260
+    cmp bx, 0x104
     je .i_cmp_rax_rbp
-    cmp bx, 261
+    cmp bx, 0x105
     je .i_cmp_rcx_rax
-    cmp bx, 262
+    cmp bx, 0x106
     je .i_cmp_rcx_rcx
-    cmp bx, 263
+    cmp bx, 0x107
     je .i_cmp_rcx_rdx
-    cmp bx, 264
+    cmp bx, 0x108
     je .i_cmp_rcx_r8
-    cmp bx, 265
+    cmp bx, 0x109
     je .i_cmp_rcx_r9
-    cmp bx, 266
+    cmp bx, 0x10a
     je .i_cmp_rcx_rsp
-    cmp bx, 267
+    cmp bx, 0x10b
     je .i_cmp_rcx_rbp
-    cmp bx, 268
+    cmp bx, 0x10c
     je .i_cmp_rdx_rax
-    cmp bx, 269
+    cmp bx, 0x10d
     je .i_cmp_rdx_rcx
-    cmp bx, 270
+    cmp bx, 0x10e
     je .i_cmp_rdx_rdx
-    cmp bx, 271
+    cmp bx, 0x10f
     je .i_cmp_rdx_r8
-    cmp bx, 272
+    cmp bx, 0x110
     je .i_cmp_rdx_r9
-    cmp bx, 273
+    cmp bx, 0x111
     je .i_cmp_rdx_rsp
-    cmp bx, 274
+    cmp bx, 0x112
     je .i_cmp_rdx_rbp
-    cmp bx, 275
+    cmp bx, 0x113
     je .i_cmp_r8_rax
-    cmp bx, 276
+    cmp bx, 0x114
     je .i_cmp_r8_rcx
-    cmp bx, 277
+    cmp bx, 0x115
     je .i_cmp_r8_rdx
-    cmp bx, 278
+    cmp bx, 0x116
     je .i_cmp_r8_r8
-    cmp bx, 279
+    cmp bx, 0x117
     je .i_cmp_r8_r9
-    cmp bx, 280
+    cmp bx, 0x118
     je .i_cmp_r8_rsp
-    cmp bx, 281
+    cmp bx, 0x119
     je .i_cmp_r8_rbp
-    cmp bx, 282
+    cmp bx, 0x11a
     je .i_cmp_r9_rax
-    cmp bx, 283
+    cmp bx, 0x11b
     je .i_cmp_r9_rcx
-    cmp bx, 284
+    cmp bx, 0x11c
     je .i_cmp_r9_rdx
-    cmp bx, 285
+    cmp bx, 0x11d
     je .i_cmp_r9_r8
-    cmp bx, 286
+    cmp bx, 0x11e
     je .i_cmp_r9_r9
-    cmp bx, 287
+    cmp bx, 0x11f
     je .i_cmp_r9_rsp
-    cmp bx, 288
+    cmp bx, 0x120
     je .i_cmp_r9_rbp
-    cmp bx, 289
+    cmp bx, 0x121
     je .i_cmp_rsp_rax
-    cmp bx, 290
+    cmp bx, 0x122
     je .i_cmp_rsp_rcx
-    cmp bx, 291
+    cmp bx, 0x123
     je .i_cmp_rsp_rdx
-    cmp bx, 292
+    cmp bx, 0x124
     je .i_cmp_rsp_r8
-    cmp bx, 293
+    cmp bx, 0x125
     je .i_cmp_rsp_r9
-    cmp bx, 294
+    cmp bx, 0x126
     je .i_cmp_rsp_rsp
-    cmp bx, 295
+    cmp bx, 0x127
     je .i_cmp_rsp_rbp
-    cmp bx, 296
+    cmp bx, 0x128
     je .i_cmp_rbp_rax
-    cmp bx, 297
+    cmp bx, 0x129
     je .i_cmp_rbp_rcx
-    cmp bx, 298
+    cmp bx, 0x12a
     je .i_cmp_rbp_rdx
-    cmp bx, 299
+    cmp bx, 0x12b
     je .i_cmp_rbp_r8
-    cmp bx, 300
+    cmp bx, 0x12c
     je .i_cmp_rbp_r9
-    cmp bx, 301
+    cmp bx, 0x12d
     je .i_cmp_rbp_rsp
-    cmp bx, 302
+    cmp bx, 0x12e
     je .i_cmp_rbp_rbp
-    cmp bx, 303
+    cmp bx, 0x12f
     je .i_dref_rax_rax
-    cmp bx, 304
+    cmp bx, 0x130
     je .i_dref_rax_rcx
-    cmp bx, 305
+    cmp bx, 0x131
     je .i_dref_rax_rdx
-    cmp bx, 306
+    cmp bx, 0x132
     je .i_dref_rax_r8
-    cmp bx, 307
+    cmp bx, 0x133
     je .i_dref_rax_r9
-    cmp bx, 308
+    cmp bx, 0x134
     je .i_dref_rax_rsp
-    cmp bx, 309
+    cmp bx, 0x135
     je .i_dref_rax_rbp
-    cmp bx, 310
+    cmp bx, 0x136
     je .i_dref_rcx_rax
-    cmp bx, 311
+    cmp bx, 0x137
     je .i_dref_rcx_rcx
-    cmp bx, 312
+    cmp bx, 0x138
     je .i_dref_rcx_rdx
-    cmp bx, 313
+    cmp bx, 0x139
     je .i_dref_rcx_r8
-    cmp bx, 314
+    cmp bx, 0x13a
     je .i_dref_rcx_r9
-    cmp bx, 315
+    cmp bx, 0x13b
     je .i_dref_rcx_rsp
-    cmp bx, 316
+    cmp bx, 0x13c
     je .i_dref_rcx_rbp
-    cmp bx, 317
+    cmp bx, 0x13d
     je .i_dref_rdx_rax
-    cmp bx, 318
+    cmp bx, 0x13e
     je .i_dref_rdx_rcx
-    cmp bx, 319
+    cmp bx, 0x13f
     je .i_dref_rdx_rdx
-    cmp bx, 320
+    cmp bx, 0x140
     je .i_dref_rdx_r8
-    cmp bx, 321
+    cmp bx, 0x141
     je .i_dref_rdx_r9
-    cmp bx, 322
+    cmp bx, 0x142
     je .i_dref_rdx_rsp
-    cmp bx, 323
+    cmp bx, 0x143
     je .i_dref_rdx_rbp
-    cmp bx, 324
+    cmp bx, 0x144
     je .i_dref_r8_rax
-    cmp bx, 325
+    cmp bx, 0x145
     je .i_dref_r8_rcx
-    cmp bx, 326
+    cmp bx, 0x146
     je .i_dref_r8_rdx
-    cmp bx, 327
+    cmp bx, 0x147
     je .i_dref_r8_r8
-    cmp bx, 328
+    cmp bx, 0x148
     je .i_dref_r8_r9
-    cmp bx, 329
+    cmp bx, 0x149
     je .i_dref_r8_rsp
-    cmp bx, 330
+    cmp bx, 0x14a
     je .i_dref_r8_rbp
-    cmp bx, 331
+    cmp bx, 0x14b
     je .i_dref_r9_rax
-    cmp bx, 332
+    cmp bx, 0x14c
     je .i_dref_r9_rcx
-    cmp bx, 333
+    cmp bx, 0x14d
     je .i_dref_r9_rdx
-    cmp bx, 334
+    cmp bx, 0x14e
     je .i_dref_r9_r8
-    cmp bx, 335
+    cmp bx, 0x14f
     je .i_dref_r9_r9
-    cmp bx, 336
+    cmp bx, 0x150
     je .i_dref_r9_rsp
-    cmp bx, 337
+    cmp bx, 0x151
     je .i_dref_r9_rbp
-    cmp bx, 338
+    cmp bx, 0x152
     je .i_dref_rsp_rax
-    cmp bx, 339
+    cmp bx, 0x153
     je .i_dref_rsp_rcx
-    cmp bx, 340
+    cmp bx, 0x154
     je .i_dref_rsp_rdx
-    cmp bx, 341
+    cmp bx, 0x155
     je .i_dref_rsp_r8
-    cmp bx, 342
+    cmp bx, 0x156
     je .i_dref_rsp_r9
-    cmp bx, 343
+    cmp bx, 0x157
     je .i_dref_rsp_rsp
-    cmp bx, 344
+    cmp bx, 0x158
     je .i_dref_rsp_rbp
-    cmp bx, 345
+    cmp bx, 0x159
     je .i_dref_rbp_rax
-    cmp bx, 346
+    cmp bx, 0x15a
     je .i_dref_rbp_rcx
-    cmp bx, 347
+    cmp bx, 0x15b
     je .i_dref_rbp_rdx
-    cmp bx, 348
+    cmp bx, 0x15c
     je .i_dref_rbp_r8
-    cmp bx, 349
+    cmp bx, 0x15d
     je .i_dref_rbp_r9
-    cmp bx, 350
+    cmp bx, 0x15e
     je .i_dref_rbp_rsp
-    cmp bx, 351
+    cmp bx, 0x15f
     je .i_dref_rbp_rbp
-    cmp bx, 352
+    cmp bx, 0x160
     je .i_jmp
-    cmp bx, 353
+    cmp bx, 0x161
     je .i_je
-    cmp bx, 354
+    cmp bx, 0x162
     je .i_jz
-    cmp bx, 355
+    cmp bx, 0x163
     je .i_jne
-    cmp bx, 356
+    cmp bx, 0x164
     je .i_jl
-    cmp bx, 357
+    cmp bx, 0x165
     je .i_jg
-    cmp bx, 358
+    cmp bx, 0x166
     je .i_jle
-    cmp bx, 359
+    cmp bx, 0x167
     je .i_jge
-    cmp bx, 360
+    cmp bx, 0x168
     je .i_call
-    cmp bx, 361
+    cmp bx, 0x169
     je .i_ret
-    cmp bx, 362
+    cmp bx, 0x16a
     je .i_leave
-    cmp bx, 363
+    cmp bx, 0x16b
     je .i_enter
-    cmp bx, 364
+    cmp bx, 0x16c
     je .i_extern_call
 
 
@@ -1039,31 +1039,31 @@ run:
     jmp ._loop
 
     .i_mov_rax_rcx:
-    mov rax, rax
+    mov rax, rcx
     jmp ._loop
 
     .i_mov_rax_rdx:
-    mov rax, rax
+    mov rax, rdx
     jmp ._loop
 
     .i_mov_rax_r8:
-    mov rax, rax
+    mov rax, r8
     jmp ._loop
 
     .i_mov_rax_r9:
-    mov rax, rax
+    mov rax, r9
     jmp ._loop
 
     .i_mov_rax_rsp:
-    mov rax, rax
+    mov rax, rsp
     jmp ._loop
 
     .i_mov_rax_rbp:
-    mov rax, rax
+    mov rax, rbp
     jmp ._loop
 
     .i_mov_rcx_rax:
-    mov rcx, rcx
+    mov rcx, rax
     jmp ._loop
 
     .i_mov_rcx_rcx:
@@ -1071,31 +1071,31 @@ run:
     jmp ._loop
 
     .i_mov_rcx_rdx:
-    mov rcx, rcx
+    mov rcx, rdx
     jmp ._loop
 
     .i_mov_rcx_r8:
-    mov rcx, rcx
+    mov rcx, r8
     jmp ._loop
 
     .i_mov_rcx_r9:
-    mov rcx, rcx
+    mov rcx, r9
     jmp ._loop
 
     .i_mov_rcx_rsp:
-    mov rcx, rcx
+    mov rcx, rsp
     jmp ._loop
 
     .i_mov_rcx_rbp:
-    mov rcx, rcx
+    mov rcx, rbp
     jmp ._loop
 
     .i_mov_rdx_rax:
-    mov rdx, rdx
+    mov rdx, rax
     jmp ._loop
 
     .i_mov_rdx_rcx:
-    mov rdx, rdx
+    mov rdx, rcx
     jmp ._loop
 
     .i_mov_rdx_rdx:
@@ -1103,31 +1103,31 @@ run:
     jmp ._loop
 
     .i_mov_rdx_r8:
-    mov rdx, rdx
+    mov rdx, r8
     jmp ._loop
 
     .i_mov_rdx_r9:
-    mov rdx, rdx
+    mov rdx, r9
     jmp ._loop
 
     .i_mov_rdx_rsp:
-    mov rdx, rdx
+    mov rdx, rsp
     jmp ._loop
 
     .i_mov_rdx_rbp:
-    mov rdx, rdx
+    mov rdx, rbp
     jmp ._loop
 
     .i_mov_r8_rax:
-    mov r8, r8
+    mov r8, rax
     jmp ._loop
 
     .i_mov_r8_rcx:
-    mov r8, r8
+    mov r8, rcx
     jmp ._loop
 
     .i_mov_r8_rdx:
-    mov r8, r8
+    mov r8, rdx
     jmp ._loop
 
     .i_mov_r8_r8:
@@ -1135,31 +1135,31 @@ run:
     jmp ._loop
 
     .i_mov_r8_r9:
-    mov r8, r8
+    mov r8, r9
     jmp ._loop
 
     .i_mov_r8_rsp:
-    mov r8, r8
+    mov r8, rsp
     jmp ._loop
 
     .i_mov_r8_rbp:
-    mov r8, r8
+    mov r8, rbp
     jmp ._loop
 
     .i_mov_r9_rax:
-    mov r9, r9
+    mov r9, rax
     jmp ._loop
 
     .i_mov_r9_rcx:
-    mov r9, r9
+    mov r9, rcx
     jmp ._loop
 
     .i_mov_r9_rdx:
-    mov r9, r9
+    mov r9, rdx
     jmp ._loop
 
     .i_mov_r9_r8:
-    mov r9, r9
+    mov r9, r8
     jmp ._loop
 
     .i_mov_r9_r9:
@@ -1167,31 +1167,31 @@ run:
     jmp ._loop
 
     .i_mov_r9_rsp:
-    mov r9, r9
+    mov r9, rsp
     jmp ._loop
 
     .i_mov_r9_rbp:
-    mov r9, r9
+    mov r9, rbp
     jmp ._loop
 
     .i_mov_rsp_rax:
-    mov rsp, rsp
+    mov rsp, rax
     jmp ._loop
 
     .i_mov_rsp_rcx:
-    mov rsp, rsp
+    mov rsp, rcx
     jmp ._loop
 
     .i_mov_rsp_rdx:
-    mov rsp, rsp
+    mov rsp, rdx
     jmp ._loop
 
     .i_mov_rsp_r8:
-    mov rsp, rsp
+    mov rsp, r8
     jmp ._loop
 
     .i_mov_rsp_r9:
-    mov rsp, rsp
+    mov rsp, r9
     jmp ._loop
 
     .i_mov_rsp_rsp:
@@ -1199,31 +1199,31 @@ run:
     jmp ._loop
 
     .i_mov_rsp_rbp:
-    mov rsp, rsp
+    mov rsp, rbp
     jmp ._loop
 
     .i_mov_rbp_rax:
-    mov rbp, rbp
+    mov rbp, rax
     jmp ._loop
 
     .i_mov_rbp_rcx:
-    mov rbp, rbp
+    mov rbp, rcx
     jmp ._loop
 
     .i_mov_rbp_rdx:
-    mov rbp, rbp
+    mov rbp, rdx
     jmp ._loop
 
     .i_mov_rbp_r8:
-    mov rbp, rbp
+    mov rbp, r8
     jmp ._loop
 
     .i_mov_rbp_r9:
-    mov rbp, rbp
+    mov rbp, r9
     jmp ._loop
 
     .i_mov_rbp_rsp:
-    mov rbp, rbp
+    mov rbp, rsp
     jmp ._loop
 
     .i_mov_rbp_rbp:
@@ -1235,31 +1235,31 @@ run:
     jmp ._loop
 
     .i_add_rax_rcx:
-    add rax, rax
+    add rax, rcx
     jmp ._loop
 
     .i_add_rax_rdx:
-    add rax, rax
+    add rax, rdx
     jmp ._loop
 
     .i_add_rax_r8:
-    add rax, rax
+    add rax, r8
     jmp ._loop
 
     .i_add_rax_r9:
-    add rax, rax
+    add rax, r9
     jmp ._loop
 
     .i_add_rax_rsp:
-    add rax, rax
+    add rax, rsp
     jmp ._loop
 
     .i_add_rax_rbp:
-    add rax, rax
+    add rax, rbp
     jmp ._loop
 
     .i_add_rcx_rax:
-    add rcx, rcx
+    add rcx, rax
     jmp ._loop
 
     .i_add_rcx_rcx:
@@ -1267,31 +1267,31 @@ run:
     jmp ._loop
 
     .i_add_rcx_rdx:
-    add rcx, rcx
+    add rcx, rdx
     jmp ._loop
 
     .i_add_rcx_r8:
-    add rcx, rcx
+    add rcx, r8
     jmp ._loop
 
     .i_add_rcx_r9:
-    add rcx, rcx
+    add rcx, r9
     jmp ._loop
 
     .i_add_rcx_rsp:
-    add rcx, rcx
+    add rcx, rsp
     jmp ._loop
 
     .i_add_rcx_rbp:
-    add rcx, rcx
+    add rcx, rbp
     jmp ._loop
 
     .i_add_rdx_rax:
-    add rdx, rdx
+    add rdx, rax
     jmp ._loop
 
     .i_add_rdx_rcx:
-    add rdx, rdx
+    add rdx, rcx
     jmp ._loop
 
     .i_add_rdx_rdx:
@@ -1299,31 +1299,31 @@ run:
     jmp ._loop
 
     .i_add_rdx_r8:
-    add rdx, rdx
+    add rdx, r8
     jmp ._loop
 
     .i_add_rdx_r9:
-    add rdx, rdx
+    add rdx, r9
     jmp ._loop
 
     .i_add_rdx_rsp:
-    add rdx, rdx
+    add rdx, rsp
     jmp ._loop
 
     .i_add_rdx_rbp:
-    add rdx, rdx
+    add rdx, rbp
     jmp ._loop
 
     .i_add_r8_rax:
-    add r8, r8
+    add r8, rax
     jmp ._loop
 
     .i_add_r8_rcx:
-    add r8, r8
+    add r8, rcx
     jmp ._loop
 
     .i_add_r8_rdx:
-    add r8, r8
+    add r8, rdx
     jmp ._loop
 
     .i_add_r8_r8:
@@ -1331,31 +1331,31 @@ run:
     jmp ._loop
 
     .i_add_r8_r9:
-    add r8, r8
+    add r8, r9
     jmp ._loop
 
     .i_add_r8_rsp:
-    add r8, r8
+    add r8, rsp
     jmp ._loop
 
     .i_add_r8_rbp:
-    add r8, r8
+    add r8, rbp
     jmp ._loop
 
     .i_add_r9_rax:
-    add r9, r9
+    add r9, rax
     jmp ._loop
 
     .i_add_r9_rcx:
-    add r9, r9
+    add r9, rcx
     jmp ._loop
 
     .i_add_r9_rdx:
-    add r9, r9
+    add r9, rdx
     jmp ._loop
 
     .i_add_r9_r8:
-    add r9, r9
+    add r9, r8
     jmp ._loop
 
     .i_add_r9_r9:
@@ -1363,31 +1363,31 @@ run:
     jmp ._loop
 
     .i_add_r9_rsp:
-    add r9, r9
+    add r9, rsp
     jmp ._loop
 
     .i_add_r9_rbp:
-    add r9, r9
+    add r9, rbp
     jmp ._loop
 
     .i_add_rsp_rax:
-    add rsp, rsp
+    add rsp, rax
     jmp ._loop
 
     .i_add_rsp_rcx:
-    add rsp, rsp
+    add rsp, rcx
     jmp ._loop
 
     .i_add_rsp_rdx:
-    add rsp, rsp
+    add rsp, rdx
     jmp ._loop
 
     .i_add_rsp_r8:
-    add rsp, rsp
+    add rsp, r8
     jmp ._loop
 
     .i_add_rsp_r9:
-    add rsp, rsp
+    add rsp, r9
     jmp ._loop
 
     .i_add_rsp_rsp:
@@ -1395,31 +1395,31 @@ run:
     jmp ._loop
 
     .i_add_rsp_rbp:
-    add rsp, rsp
+    add rsp, rbp
     jmp ._loop
 
     .i_add_rbp_rax:
-    add rbp, rbp
+    add rbp, rax
     jmp ._loop
 
     .i_add_rbp_rcx:
-    add rbp, rbp
+    add rbp, rcx
     jmp ._loop
 
     .i_add_rbp_rdx:
-    add rbp, rbp
+    add rbp, rdx
     jmp ._loop
 
     .i_add_rbp_r8:
-    add rbp, rbp
+    add rbp, r8
     jmp ._loop
 
     .i_add_rbp_r9:
-    add rbp, rbp
+    add rbp, r9
     jmp ._loop
 
     .i_add_rbp_rsp:
-    add rbp, rbp
+    add rbp, rsp
     jmp ._loop
 
     .i_add_rbp_rbp:
@@ -1431,31 +1431,31 @@ run:
     jmp ._loop
 
     .i_sub_rax_rcx:
-    sub rax, rax
+    sub rax, rcx
     jmp ._loop
 
     .i_sub_rax_rdx:
-    sub rax, rax
+    sub rax, rdx
     jmp ._loop
 
     .i_sub_rax_r8:
-    sub rax, rax
+    sub rax, r8
     jmp ._loop
 
     .i_sub_rax_r9:
-    sub rax, rax
+    sub rax, r9
     jmp ._loop
 
     .i_sub_rax_rsp:
-    sub rax, rax
+    sub rax, rsp
     jmp ._loop
 
     .i_sub_rax_rbp:
-    sub rax, rax
+    sub rax, rbp
     jmp ._loop
 
     .i_sub_rcx_rax:
-    sub rcx, rcx
+    sub rcx, rax
     jmp ._loop
 
     .i_sub_rcx_rcx:
@@ -1463,31 +1463,31 @@ run:
     jmp ._loop
 
     .i_sub_rcx_rdx:
-    sub rcx, rcx
+    sub rcx, rdx
     jmp ._loop
 
     .i_sub_rcx_r8:
-    sub rcx, rcx
+    sub rcx, r8
     jmp ._loop
 
     .i_sub_rcx_r9:
-    sub rcx, rcx
+    sub rcx, r9
     jmp ._loop
 
     .i_sub_rcx_rsp:
-    sub rcx, rcx
+    sub rcx, rsp
     jmp ._loop
 
     .i_sub_rcx_rbp:
-    sub rcx, rcx
+    sub rcx, rbp
     jmp ._loop
 
     .i_sub_rdx_rax:
-    sub rdx, rdx
+    sub rdx, rax
     jmp ._loop
 
     .i_sub_rdx_rcx:
-    sub rdx, rdx
+    sub rdx, rcx
     jmp ._loop
 
     .i_sub_rdx_rdx:
@@ -1495,31 +1495,31 @@ run:
     jmp ._loop
 
     .i_sub_rdx_r8:
-    sub rdx, rdx
+    sub rdx, r8
     jmp ._loop
 
     .i_sub_rdx_r9:
-    sub rdx, rdx
+    sub rdx, r9
     jmp ._loop
 
     .i_sub_rdx_rsp:
-    sub rdx, rdx
+    sub rdx, rsp
     jmp ._loop
 
     .i_sub_rdx_rbp:
-    sub rdx, rdx
+    sub rdx, rbp
     jmp ._loop
 
     .i_sub_r8_rax:
-    sub r8, r8
+    sub r8, rax
     jmp ._loop
 
     .i_sub_r8_rcx:
-    sub r8, r8
+    sub r8, rcx
     jmp ._loop
 
     .i_sub_r8_rdx:
-    sub r8, r8
+    sub r8, rdx
     jmp ._loop
 
     .i_sub_r8_r8:
@@ -1527,31 +1527,31 @@ run:
     jmp ._loop
 
     .i_sub_r8_r9:
-    sub r8, r8
+    sub r8, r9
     jmp ._loop
 
     .i_sub_r8_rsp:
-    sub r8, r8
+    sub r8, rsp
     jmp ._loop
 
     .i_sub_r8_rbp:
-    sub r8, r8
+    sub r8, rbp
     jmp ._loop
 
     .i_sub_r9_rax:
-    sub r9, r9
+    sub r9, rax
     jmp ._loop
 
     .i_sub_r9_rcx:
-    sub r9, r9
+    sub r9, rcx
     jmp ._loop
 
     .i_sub_r9_rdx:
-    sub r9, r9
+    sub r9, rdx
     jmp ._loop
 
     .i_sub_r9_r8:
-    sub r9, r9
+    sub r9, r8
     jmp ._loop
 
     .i_sub_r9_r9:
@@ -1559,31 +1559,31 @@ run:
     jmp ._loop
 
     .i_sub_r9_rsp:
-    sub r9, r9
+    sub r9, rsp
     jmp ._loop
 
     .i_sub_r9_rbp:
-    sub r9, r9
+    sub r9, rbp
     jmp ._loop
 
     .i_sub_rsp_rax:
-    sub rsp, rsp
+    sub rsp, rax
     jmp ._loop
 
     .i_sub_rsp_rcx:
-    sub rsp, rsp
+    sub rsp, rcx
     jmp ._loop
 
     .i_sub_rsp_rdx:
-    sub rsp, rsp
+    sub rsp, rdx
     jmp ._loop
 
     .i_sub_rsp_r8:
-    sub rsp, rsp
+    sub rsp, r8
     jmp ._loop
 
     .i_sub_rsp_r9:
-    sub rsp, rsp
+    sub rsp, r9
     jmp ._loop
 
     .i_sub_rsp_rsp:
@@ -1591,31 +1591,31 @@ run:
     jmp ._loop
 
     .i_sub_rsp_rbp:
-    sub rsp, rsp
+    sub rsp, rbp
     jmp ._loop
 
     .i_sub_rbp_rax:
-    sub rbp, rbp
+    sub rbp, rax
     jmp ._loop
 
     .i_sub_rbp_rcx:
-    sub rbp, rbp
+    sub rbp, rcx
     jmp ._loop
 
     .i_sub_rbp_rdx:
-    sub rbp, rbp
+    sub rbp, rdx
     jmp ._loop
 
     .i_sub_rbp_r8:
-    sub rbp, rbp
+    sub rbp, r8
     jmp ._loop
 
     .i_sub_rbp_r9:
-    sub rbp, rbp
+    sub rbp, r9
     jmp ._loop
 
     .i_sub_rbp_rsp:
-    sub rbp, rbp
+    sub rbp, rsp
     jmp ._loop
 
     .i_sub_rbp_rbp:
@@ -1627,31 +1627,31 @@ run:
     jmp ._loop
 
     .i_imul_rax_rcx:
-    sub rax, rax
+    sub rax, rcx
     jmp ._loop
 
     .i_imul_rax_rdx:
-    sub rax, rax
+    sub rax, rdx
     jmp ._loop
 
     .i_imul_rax_r8:
-    sub rax, rax
+    sub rax, r8
     jmp ._loop
 
     .i_imul_rax_r9:
-    sub rax, rax
+    sub rax, r9
     jmp ._loop
 
     .i_imul_rax_rsp:
-    sub rax, rax
+    sub rax, rsp
     jmp ._loop
 
     .i_imul_rax_rbp:
-    sub rax, rax
+    sub rax, rbp
     jmp ._loop
 
     .i_imul_rcx_rax:
-    sub rcx, rcx
+    sub rcx, rax
     jmp ._loop
 
     .i_imul_rcx_rcx:
@@ -1659,31 +1659,31 @@ run:
     jmp ._loop
 
     .i_imul_rcx_rdx:
-    sub rcx, rcx
+    sub rcx, rdx
     jmp ._loop
 
     .i_imul_rcx_r8:
-    sub rcx, rcx
+    sub rcx, r8
     jmp ._loop
 
     .i_imul_rcx_r9:
-    sub rcx, rcx
+    sub rcx, r9
     jmp ._loop
 
     .i_imul_rcx_rsp:
-    sub rcx, rcx
+    sub rcx, rsp
     jmp ._loop
 
     .i_imul_rcx_rbp:
-    sub rcx, rcx
+    sub rcx, rbp
     jmp ._loop
 
     .i_imul_rdx_rax:
-    sub rdx, rdx
+    sub rdx, rax
     jmp ._loop
 
     .i_imul_rdx_rcx:
-    sub rdx, rdx
+    sub rdx, rcx
     jmp ._loop
 
     .i_imul_rdx_rdx:
@@ -1691,31 +1691,31 @@ run:
     jmp ._loop
 
     .i_imul_rdx_r8:
-    sub rdx, rdx
+    sub rdx, r8
     jmp ._loop
 
     .i_imul_rdx_r9:
-    sub rdx, rdx
+    sub rdx, r9
     jmp ._loop
 
     .i_imul_rdx_rsp:
-    sub rdx, rdx
+    sub rdx, rsp
     jmp ._loop
 
     .i_imul_rdx_rbp:
-    sub rdx, rdx
+    sub rdx, rbp
     jmp ._loop
 
     .i_imul_r8_rax:
-    sub r8, r8
+    sub r8, rax
     jmp ._loop
 
     .i_imul_r8_rcx:
-    sub r8, r8
+    sub r8, rcx
     jmp ._loop
 
     .i_imul_r8_rdx:
-    sub r8, r8
+    sub r8, rdx
     jmp ._loop
 
     .i_imul_r8_r8:
@@ -1723,31 +1723,31 @@ run:
     jmp ._loop
 
     .i_imul_r8_r9:
-    sub r8, r8
+    sub r8, r9
     jmp ._loop
 
     .i_imul_r8_rsp:
-    sub r8, r8
+    sub r8, rsp
     jmp ._loop
 
     .i_imul_r8_rbp:
-    sub r8, r8
+    sub r8, rbp
     jmp ._loop
 
     .i_imul_r9_rax:
-    sub r9, r9
+    sub r9, rax
     jmp ._loop
 
     .i_imul_r9_rcx:
-    sub r9, r9
+    sub r9, rcx
     jmp ._loop
 
     .i_imul_r9_rdx:
-    sub r9, r9
+    sub r9, rdx
     jmp ._loop
 
     .i_imul_r9_r8:
-    sub r9, r9
+    sub r9, r8
     jmp ._loop
 
     .i_imul_r9_r9:
@@ -1755,31 +1755,31 @@ run:
     jmp ._loop
 
     .i_imul_r9_rsp:
-    sub r9, r9
+    sub r9, rsp
     jmp ._loop
 
     .i_imul_r9_rbp:
-    sub r9, r9
+    sub r9, rbp
     jmp ._loop
 
     .i_imul_rsp_rax:
-    sub rsp, rsp
+    sub rsp, rax
     jmp ._loop
 
     .i_imul_rsp_rcx:
-    sub rsp, rsp
+    sub rsp, rcx
     jmp ._loop
 
     .i_imul_rsp_rdx:
-    sub rsp, rsp
+    sub rsp, rdx
     jmp ._loop
 
     .i_imul_rsp_r8:
-    sub rsp, rsp
+    sub rsp, r8
     jmp ._loop
 
     .i_imul_rsp_r9:
-    sub rsp, rsp
+    sub rsp, r9
     jmp ._loop
 
     .i_imul_rsp_rsp:
@@ -1787,31 +1787,31 @@ run:
     jmp ._loop
 
     .i_imul_rsp_rbp:
-    sub rsp, rsp
+    sub rsp, rbp
     jmp ._loop
 
     .i_imul_rbp_rax:
-    sub rbp, rbp
+    sub rbp, rax
     jmp ._loop
 
     .i_imul_rbp_rcx:
-    sub rbp, rbp
+    sub rbp, rcx
     jmp ._loop
 
     .i_imul_rbp_rdx:
-    sub rbp, rbp
+    sub rbp, rdx
     jmp ._loop
 
     .i_imul_rbp_r8:
-    sub rbp, rbp
+    sub rbp, r8
     jmp ._loop
 
     .i_imul_rbp_r9:
-    sub rbp, rbp
+    sub rbp, r9
     jmp ._loop
 
     .i_imul_rbp_rsp:
-    sub rbp, rbp
+    sub rbp, rsp
     jmp ._loop
 
     .i_imul_rbp_rbp:
@@ -1826,43 +1826,43 @@ run:
 
     .i_cmp_rax_rcx:
     mov rbx, rax
-    sub rbx, rax
+    sub rbx, rcx
     push rbx
     jmp ._loop
 
     .i_cmp_rax_rdx:
     mov rbx, rax
-    sub rbx, rax
+    sub rbx, rdx
     push rbx
     jmp ._loop
 
     .i_cmp_rax_r8:
     mov rbx, rax
-    sub rbx, rax
+    sub rbx, r8
     push rbx
     jmp ._loop
 
     .i_cmp_rax_r9:
     mov rbx, rax
-    sub rbx, rax
+    sub rbx, r9
     push rbx
     jmp ._loop
 
     .i_cmp_rax_rsp:
     mov rbx, rax
-    sub rbx, rax
+    sub rbx, rsp
     push rbx
     jmp ._loop
 
     .i_cmp_rax_rbp:
     mov rbx, rax
-    sub rbx, rax
+    sub rbx, rbp
     push rbx
     jmp ._loop
 
     .i_cmp_rcx_rax:
     mov rbx, rcx
-    sub rbx, rcx
+    sub rbx, rax
     push rbx
     jmp ._loop
 
@@ -1874,43 +1874,43 @@ run:
 
     .i_cmp_rcx_rdx:
     mov rbx, rcx
-    sub rbx, rcx
+    sub rbx, rdx
     push rbx
     jmp ._loop
 
     .i_cmp_rcx_r8:
     mov rbx, rcx
-    sub rbx, rcx
+    sub rbx, r8
     push rbx
     jmp ._loop
 
     .i_cmp_rcx_r9:
     mov rbx, rcx
-    sub rbx, rcx
+    sub rbx, r9
     push rbx
     jmp ._loop
 
     .i_cmp_rcx_rsp:
     mov rbx, rcx
-    sub rbx, rcx
+    sub rbx, rsp
     push rbx
     jmp ._loop
 
     .i_cmp_rcx_rbp:
     mov rbx, rcx
-    sub rbx, rcx
+    sub rbx, rbp
     push rbx
     jmp ._loop
 
     .i_cmp_rdx_rax:
     mov rbx, rdx
-    sub rbx, rdx
+    sub rbx, rax
     push rbx
     jmp ._loop
 
     .i_cmp_rdx_rcx:
     mov rbx, rdx
-    sub rbx, rdx
+    sub rbx, rcx
     push rbx
     jmp ._loop
 
@@ -1922,43 +1922,43 @@ run:
 
     .i_cmp_rdx_r8:
     mov rbx, rdx
-    sub rbx, rdx
+    sub rbx, r8
     push rbx
     jmp ._loop
 
     .i_cmp_rdx_r9:
     mov rbx, rdx
-    sub rbx, rdx
+    sub rbx, r9
     push rbx
     jmp ._loop
 
     .i_cmp_rdx_rsp:
     mov rbx, rdx
-    sub rbx, rdx
+    sub rbx, rsp
     push rbx
     jmp ._loop
 
     .i_cmp_rdx_rbp:
     mov rbx, rdx
-    sub rbx, rdx
+    sub rbx, rbp
     push rbx
     jmp ._loop
 
     .i_cmp_r8_rax:
     mov rbx, r8
-    sub rbx, r8
+    sub rbx, rax
     push rbx
     jmp ._loop
 
     .i_cmp_r8_rcx:
     mov rbx, r8
-    sub rbx, r8
+    sub rbx, rcx
     push rbx
     jmp ._loop
 
     .i_cmp_r8_rdx:
     mov rbx, r8
-    sub rbx, r8
+    sub rbx, rdx
     push rbx
     jmp ._loop
 
@@ -1970,43 +1970,43 @@ run:
 
     .i_cmp_r8_r9:
     mov rbx, r8
-    sub rbx, r8
+    sub rbx, r9
     push rbx
     jmp ._loop
 
     .i_cmp_r8_rsp:
     mov rbx, r8
-    sub rbx, r8
+    sub rbx, rsp
     push rbx
     jmp ._loop
 
     .i_cmp_r8_rbp:
     mov rbx, r8
-    sub rbx, r8
+    sub rbx, rbp
     push rbx
     jmp ._loop
 
     .i_cmp_r9_rax:
     mov rbx, r9
-    sub rbx, r9
+    sub rbx, rax
     push rbx
     jmp ._loop
 
     .i_cmp_r9_rcx:
     mov rbx, r9
-    sub rbx, r9
+    sub rbx, rcx
     push rbx
     jmp ._loop
 
     .i_cmp_r9_rdx:
     mov rbx, r9
-    sub rbx, r9
+    sub rbx, rdx
     push rbx
     jmp ._loop
 
     .i_cmp_r9_r8:
     mov rbx, r9
-    sub rbx, r9
+    sub rbx, r8
     push rbx
     jmp ._loop
 
@@ -2018,43 +2018,43 @@ run:
 
     .i_cmp_r9_rsp:
     mov rbx, r9
-    sub rbx, r9
+    sub rbx, rsp
     push rbx
     jmp ._loop
 
     .i_cmp_r9_rbp:
     mov rbx, r9
-    sub rbx, r9
+    sub rbx, rbp
     push rbx
     jmp ._loop
 
     .i_cmp_rsp_rax:
     mov rbx, rsp
-    sub rbx, rsp
+    sub rbx, rax
     push rbx
     jmp ._loop
 
     .i_cmp_rsp_rcx:
     mov rbx, rsp
-    sub rbx, rsp
+    sub rbx, rcx
     push rbx
     jmp ._loop
 
     .i_cmp_rsp_rdx:
     mov rbx, rsp
-    sub rbx, rsp
+    sub rbx, rdx
     push rbx
     jmp ._loop
 
     .i_cmp_rsp_r8:
     mov rbx, rsp
-    sub rbx, rsp
+    sub rbx, r8
     push rbx
     jmp ._loop
 
     .i_cmp_rsp_r9:
     mov rbx, rsp
-    sub rbx, rsp
+    sub rbx, r9
     push rbx
     jmp ._loop
 
@@ -2066,43 +2066,43 @@ run:
 
     .i_cmp_rsp_rbp:
     mov rbx, rsp
-    sub rbx, rsp
+    sub rbx, rbp
     push rbx
     jmp ._loop
 
     .i_cmp_rbp_rax:
     mov rbx, rbp
-    sub rbx, rbp
+    sub rbx, rax
     push rbx
     jmp ._loop
 
     .i_cmp_rbp_rcx:
     mov rbx, rbp
-    sub rbx, rbp
+    sub rbx, rcx
     push rbx
     jmp ._loop
 
     .i_cmp_rbp_rdx:
     mov rbx, rbp
-    sub rbx, rbp
+    sub rbx, rdx
     push rbx
     jmp ._loop
 
     .i_cmp_rbp_r8:
     mov rbx, rbp
-    sub rbx, rbp
+    sub rbx, r8
     push rbx
     jmp ._loop
 
     .i_cmp_rbp_r9:
     mov rbx, rbp
-    sub rbx, rbp
+    sub rbx, r9
     push rbx
     jmp ._loop
 
     .i_cmp_rbp_rsp:
     mov rbx, rbp
-    sub rbx, rbp
+    sub rbx, rsp
     push rbx
     jmp ._loop
 
@@ -2117,31 +2117,31 @@ run:
     jmp ._loop
 
     .i_dref_rax_rcx:
-    mov rax, [rax]
+    mov rax, [rcx]
     jmp ._loop
 
     .i_dref_rax_rdx:
-    mov rax, [rax]
+    mov rax, [rdx]
     jmp ._loop
 
     .i_dref_rax_r8:
-    mov rax, [rax]
+    mov rax, [r8]
     jmp ._loop
 
     .i_dref_rax_r9:
-    mov rax, [rax]
+    mov rax, [r9]
     jmp ._loop
 
     .i_dref_rax_rsp:
-    mov rax, [rax]
+    mov rax, [rsp]
     jmp ._loop
 
     .i_dref_rax_rbp:
-    mov rax, [rax]
+    mov rax, [rbp]
     jmp ._loop
 
     .i_dref_rcx_rax:
-    mov rcx, [rcx]
+    mov rcx, [rax]
     jmp ._loop
 
     .i_dref_rcx_rcx:
@@ -2149,31 +2149,31 @@ run:
     jmp ._loop
 
     .i_dref_rcx_rdx:
-    mov rcx, [rcx]
+    mov rcx, [rdx]
     jmp ._loop
 
     .i_dref_rcx_r8:
-    mov rcx, [rcx]
+    mov rcx, [r8]
     jmp ._loop
 
     .i_dref_rcx_r9:
-    mov rcx, [rcx]
+    mov rcx, [r9]
     jmp ._loop
 
     .i_dref_rcx_rsp:
-    mov rcx, [rcx]
+    mov rcx, [rsp]
     jmp ._loop
 
     .i_dref_rcx_rbp:
-    mov rcx, [rcx]
+    mov rcx, [rbp]
     jmp ._loop
 
     .i_dref_rdx_rax:
-    mov rdx, [rdx]
+    mov rdx, [rax]
     jmp ._loop
 
     .i_dref_rdx_rcx:
-    mov rdx, [rdx]
+    mov rdx, [rcx]
     jmp ._loop
 
     .i_dref_rdx_rdx:
@@ -2181,31 +2181,31 @@ run:
     jmp ._loop
 
     .i_dref_rdx_r8:
-    mov rdx, [rdx]
+    mov rdx, [r8]
     jmp ._loop
 
     .i_dref_rdx_r9:
-    mov rdx, [rdx]
+    mov rdx, [r9]
     jmp ._loop
 
     .i_dref_rdx_rsp:
-    mov rdx, [rdx]
+    mov rdx, [rsp]
     jmp ._loop
 
     .i_dref_rdx_rbp:
-    mov rdx, [rdx]
+    mov rdx, [rbp]
     jmp ._loop
 
     .i_dref_r8_rax:
-    mov r8, [r8]
+    mov r8, [rax]
     jmp ._loop
 
     .i_dref_r8_rcx:
-    mov r8, [r8]
+    mov r8, [rcx]
     jmp ._loop
 
     .i_dref_r8_rdx:
-    mov r8, [r8]
+    mov r8, [rdx]
     jmp ._loop
 
     .i_dref_r8_r8:
@@ -2213,31 +2213,31 @@ run:
     jmp ._loop
 
     .i_dref_r8_r9:
-    mov r8, [r8]
+    mov r8, [r9]
     jmp ._loop
 
     .i_dref_r8_rsp:
-    mov r8, [r8]
+    mov r8, [rsp]
     jmp ._loop
 
     .i_dref_r8_rbp:
-    mov r8, [r8]
+    mov r8, [rbp]
     jmp ._loop
 
     .i_dref_r9_rax:
-    mov r9, [r9]
+    mov r9, [rax]
     jmp ._loop
 
     .i_dref_r9_rcx:
-    mov r9, [r9]
+    mov r9, [rcx]
     jmp ._loop
 
     .i_dref_r9_rdx:
-    mov r9, [r9]
+    mov r9, [rdx]
     jmp ._loop
 
     .i_dref_r9_r8:
-    mov r9, [r9]
+    mov r9, [r8]
     jmp ._loop
 
     .i_dref_r9_r9:
@@ -2245,31 +2245,31 @@ run:
     jmp ._loop
 
     .i_dref_r9_rsp:
-    mov r9, [r9]
+    mov r9, [rsp]
     jmp ._loop
 
     .i_dref_r9_rbp:
-    mov r9, [r9]
+    mov r9, [rbp]
     jmp ._loop
 
     .i_dref_rsp_rax:
-    mov rsp, [rsp]
+    mov rsp, [rax]
     jmp ._loop
 
     .i_dref_rsp_rcx:
-    mov rsp, [rsp]
+    mov rsp, [rcx]
     jmp ._loop
 
     .i_dref_rsp_rdx:
-    mov rsp, [rsp]
+    mov rsp, [rdx]
     jmp ._loop
 
     .i_dref_rsp_r8:
-    mov rsp, [rsp]
+    mov rsp, [r8]
     jmp ._loop
 
     .i_dref_rsp_r9:
-    mov rsp, [rsp]
+    mov rsp, [r9]
     jmp ._loop
 
     .i_dref_rsp_rsp:
@@ -2277,31 +2277,31 @@ run:
     jmp ._loop
 
     .i_dref_rsp_rbp:
-    mov rsp, [rsp]
+    mov rsp, [rbp]
     jmp ._loop
 
     .i_dref_rbp_rax:
-    mov rbp, [rbp]
+    mov rbp, [rax]
     jmp ._loop
 
     .i_dref_rbp_rcx:
-    mov rbp, [rbp]
+    mov rbp, [rcx]
     jmp ._loop
 
     .i_dref_rbp_rdx:
-    mov rbp, [rbp]
+    mov rbp, [rdx]
     jmp ._loop
 
     .i_dref_rbp_r8:
-    mov rbp, [rbp]
+    mov rbp, [r8]
     jmp ._loop
 
     .i_dref_rbp_r9:
-    mov rbp, [rbp]
+    mov rbp, [r9]
     jmp ._loop
 
     .i_dref_rbp_rsp:
-    mov rbp, [rbp]
+    mov rbp, [rsp]
     jmp ._loop
 
     .i_dref_rbp_rbp:

@@ -23,7 +23,7 @@ def make_64b_reg_pair_inst(name_template: str, asm_code_template: str) -> dict[s
     OPERATIONS: dict[str, str] = {}
     for reg1 in REGS_64bit:
         for reg2 in REGS_64bit:
-            OPERATIONS[name_template.replace("{reg1}", reg1).replace("{reg2}", reg2)] = asm_code_template.replace("{reg1}", reg1).replace("{reg2}", reg1)
+            OPERATIONS[name_template.replace("{reg1}", reg1).replace("{reg2}", reg2)] = asm_code_template.replace("{reg1}", reg1).replace("{reg2}", reg2)
     return OPERATIONS
 
 OPERATIONS = combine_dicts(

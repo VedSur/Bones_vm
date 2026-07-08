@@ -986,37 +986,51 @@ run:
     jmp ._loop
 
     .i_cmp_rax_t:
-    cmp rax, [rsi]
+    mov rbx, rax
+    sub rbx, [rsi]
+    push rbx
     add rsi, 8
     jmp ._loop
 
     .i_cmp_rcx_t:
-    cmp rcx, [rsi]
+    mov rbx, rcx
+    sub rbx, [rsi]
+    push rbx
     add rsi, 8
     jmp ._loop
 
     .i_cmp_rdx_t:
-    cmp rdx, [rsi]
+    mov rbx, rdx
+    sub rbx, [rsi]
+    push rbx
     add rsi, 8
     jmp ._loop
 
     .i_cmp_r8_t:
-    cmp r8, [rsi]
+    mov rbx, r8
+    sub rbx, [rsi]
+    push rbx
     add rsi, 8
     jmp ._loop
 
     .i_cmp_r9_t:
-    cmp r9, [rsi]
+    mov rbx, r9
+    sub rbx, [rsi]
+    push rbx
     add rsi, 8
     jmp ._loop
 
     .i_cmp_rsp_t:
-    cmp rsp, [rsi]
+    mov rbx, rsp
+    sub rbx, [rsi]
+    push rbx
     add rsi, 8
     jmp ._loop
 
     .i_cmp_rbp_t:
-    cmp rbp, [rsi]
+    mov rbx, rbp
+    sub rbx, [rsi]
+    push rbx
     add rsi, 8
     jmp ._loop
 
@@ -1805,199 +1819,297 @@ run:
     jmp ._loop
 
     .i_cmp_rax_rax:
-    cmp rax, rax
+    mov rbx, rax
+    sub rbx, rax
+    push rbx
     jmp ._loop
 
     .i_cmp_rax_rcx:
-    cmp rax, rax
+    mov rbx, rax
+    sub rbx, rax
+    push rbx
     jmp ._loop
 
     .i_cmp_rax_rdx:
-    cmp rax, rax
+    mov rbx, rax
+    sub rbx, rax
+    push rbx
     jmp ._loop
 
     .i_cmp_rax_r8:
-    cmp rax, rax
+    mov rbx, rax
+    sub rbx, rax
+    push rbx
     jmp ._loop
 
     .i_cmp_rax_r9:
-    cmp rax, rax
+    mov rbx, rax
+    sub rbx, rax
+    push rbx
     jmp ._loop
 
     .i_cmp_rax_rsp:
-    cmp rax, rax
+    mov rbx, rax
+    sub rbx, rax
+    push rbx
     jmp ._loop
 
     .i_cmp_rax_rbp:
-    cmp rax, rax
+    mov rbx, rax
+    sub rbx, rax
+    push rbx
     jmp ._loop
 
     .i_cmp_rcx_rax:
-    cmp rcx, rcx
+    mov rbx, rcx
+    sub rbx, rcx
+    push rbx
     jmp ._loop
 
     .i_cmp_rcx_rcx:
-    cmp rcx, rcx
+    mov rbx, rcx
+    sub rbx, rcx
+    push rbx
     jmp ._loop
 
     .i_cmp_rcx_rdx:
-    cmp rcx, rcx
+    mov rbx, rcx
+    sub rbx, rcx
+    push rbx
     jmp ._loop
 
     .i_cmp_rcx_r8:
-    cmp rcx, rcx
+    mov rbx, rcx
+    sub rbx, rcx
+    push rbx
     jmp ._loop
 
     .i_cmp_rcx_r9:
-    cmp rcx, rcx
+    mov rbx, rcx
+    sub rbx, rcx
+    push rbx
     jmp ._loop
 
     .i_cmp_rcx_rsp:
-    cmp rcx, rcx
+    mov rbx, rcx
+    sub rbx, rcx
+    push rbx
     jmp ._loop
 
     .i_cmp_rcx_rbp:
-    cmp rcx, rcx
+    mov rbx, rcx
+    sub rbx, rcx
+    push rbx
     jmp ._loop
 
     .i_cmp_rdx_rax:
-    cmp rdx, rdx
+    mov rbx, rdx
+    sub rbx, rdx
+    push rbx
     jmp ._loop
 
     .i_cmp_rdx_rcx:
-    cmp rdx, rdx
+    mov rbx, rdx
+    sub rbx, rdx
+    push rbx
     jmp ._loop
 
     .i_cmp_rdx_rdx:
-    cmp rdx, rdx
+    mov rbx, rdx
+    sub rbx, rdx
+    push rbx
     jmp ._loop
 
     .i_cmp_rdx_r8:
-    cmp rdx, rdx
+    mov rbx, rdx
+    sub rbx, rdx
+    push rbx
     jmp ._loop
 
     .i_cmp_rdx_r9:
-    cmp rdx, rdx
+    mov rbx, rdx
+    sub rbx, rdx
+    push rbx
     jmp ._loop
 
     .i_cmp_rdx_rsp:
-    cmp rdx, rdx
+    mov rbx, rdx
+    sub rbx, rdx
+    push rbx
     jmp ._loop
 
     .i_cmp_rdx_rbp:
-    cmp rdx, rdx
+    mov rbx, rdx
+    sub rbx, rdx
+    push rbx
     jmp ._loop
 
     .i_cmp_r8_rax:
-    cmp r8, r8
+    mov rbx, r8
+    sub rbx, r8
+    push rbx
     jmp ._loop
 
     .i_cmp_r8_rcx:
-    cmp r8, r8
+    mov rbx, r8
+    sub rbx, r8
+    push rbx
     jmp ._loop
 
     .i_cmp_r8_rdx:
-    cmp r8, r8
+    mov rbx, r8
+    sub rbx, r8
+    push rbx
     jmp ._loop
 
     .i_cmp_r8_r8:
-    cmp r8, r8
+    mov rbx, r8
+    sub rbx, r8
+    push rbx
     jmp ._loop
 
     .i_cmp_r8_r9:
-    cmp r8, r8
+    mov rbx, r8
+    sub rbx, r8
+    push rbx
     jmp ._loop
 
     .i_cmp_r8_rsp:
-    cmp r8, r8
+    mov rbx, r8
+    sub rbx, r8
+    push rbx
     jmp ._loop
 
     .i_cmp_r8_rbp:
-    cmp r8, r8
+    mov rbx, r8
+    sub rbx, r8
+    push rbx
     jmp ._loop
 
     .i_cmp_r9_rax:
-    cmp r9, r9
+    mov rbx, r9
+    sub rbx, r9
+    push rbx
     jmp ._loop
 
     .i_cmp_r9_rcx:
-    cmp r9, r9
+    mov rbx, r9
+    sub rbx, r9
+    push rbx
     jmp ._loop
 
     .i_cmp_r9_rdx:
-    cmp r9, r9
+    mov rbx, r9
+    sub rbx, r9
+    push rbx
     jmp ._loop
 
     .i_cmp_r9_r8:
-    cmp r9, r9
+    mov rbx, r9
+    sub rbx, r9
+    push rbx
     jmp ._loop
 
     .i_cmp_r9_r9:
-    cmp r9, r9
+    mov rbx, r9
+    sub rbx, r9
+    push rbx
     jmp ._loop
 
     .i_cmp_r9_rsp:
-    cmp r9, r9
+    mov rbx, r9
+    sub rbx, r9
+    push rbx
     jmp ._loop
 
     .i_cmp_r9_rbp:
-    cmp r9, r9
+    mov rbx, r9
+    sub rbx, r9
+    push rbx
     jmp ._loop
 
     .i_cmp_rsp_rax:
-    cmp rsp, rsp
+    mov rbx, rsp
+    sub rbx, rsp
+    push rbx
     jmp ._loop
 
     .i_cmp_rsp_rcx:
-    cmp rsp, rsp
+    mov rbx, rsp
+    sub rbx, rsp
+    push rbx
     jmp ._loop
 
     .i_cmp_rsp_rdx:
-    cmp rsp, rsp
+    mov rbx, rsp
+    sub rbx, rsp
+    push rbx
     jmp ._loop
 
     .i_cmp_rsp_r8:
-    cmp rsp, rsp
+    mov rbx, rsp
+    sub rbx, rsp
+    push rbx
     jmp ._loop
 
     .i_cmp_rsp_r9:
-    cmp rsp, rsp
+    mov rbx, rsp
+    sub rbx, rsp
+    push rbx
     jmp ._loop
 
     .i_cmp_rsp_rsp:
-    cmp rsp, rsp
+    mov rbx, rsp
+    sub rbx, rsp
+    push rbx
     jmp ._loop
 
     .i_cmp_rsp_rbp:
-    cmp rsp, rsp
+    mov rbx, rsp
+    sub rbx, rsp
+    push rbx
     jmp ._loop
 
     .i_cmp_rbp_rax:
-    cmp rbp, rbp
+    mov rbx, rbp
+    sub rbx, rbp
+    push rbx
     jmp ._loop
 
     .i_cmp_rbp_rcx:
-    cmp rbp, rbp
+    mov rbx, rbp
+    sub rbx, rbp
+    push rbx
     jmp ._loop
 
     .i_cmp_rbp_rdx:
-    cmp rbp, rbp
+    mov rbx, rbp
+    sub rbx, rbp
+    push rbx
     jmp ._loop
 
     .i_cmp_rbp_r8:
-    cmp rbp, rbp
+    mov rbx, rbp
+    sub rbx, rbp
+    push rbx
     jmp ._loop
 
     .i_cmp_rbp_r9:
-    cmp rbp, rbp
+    mov rbx, rbp
+    sub rbx, rbp
+    push rbx
     jmp ._loop
 
     .i_cmp_rbp_rsp:
-    cmp rbp, rbp
+    mov rbx, rbp
+    sub rbx, rbp
+    push rbx
     jmp ._loop
 
     .i_cmp_rbp_rbp:
-    cmp rbp, rbp
+    mov rbx, rbp
+    sub rbx, rbp
+    push rbx
     jmp ._loop
 
     .i_dref_rax_rax:
@@ -2203,6 +2315,8 @@ run:
     jmp ._loop
 
     .i_je:
+   pop rbx
+    cmp rbx, 0
     jne .end_je
     mov rsi, [rsi]
     add rsi, rdi
@@ -2211,6 +2325,8 @@ run:
     jmp ._loop
 
     .i_jz:
+   pop rbx
+    cmp rbx, 0
     jnz .end_jz
     mov rsi, [rsi]
     add rsi, rdi
@@ -2219,6 +2335,8 @@ run:
     jmp ._loop
 
     .i_jne:
+   pop rbx
+    cmp rbx, 0
     je .end_jne
     mov rsi, [rsi]
     add rsi, rdi
@@ -2227,6 +2345,8 @@ run:
     jmp ._loop
 
     .i_jl:
+   pop rbx
+    cmp rbx, 0
     jge .end_jl
     mov rsi, [rsi]
     add rsi, rdi
@@ -2235,6 +2355,8 @@ run:
     jmp ._loop
 
     .i_jg:
+   pop rbx
+    cmp rbx, 0
     jle .end_jg
     mov rsi, [rsi]
     add rsi, rdi
@@ -2243,6 +2365,8 @@ run:
     jmp ._loop
 
     .i_jle:
+   pop rbx
+    cmp rbx, 0
     jg .end_jle
     mov rsi, [rsi]
     add rsi, rdi
@@ -2251,6 +2375,8 @@ run:
     jmp ._loop
 
     .i_jge:
+   pop rbx
+    cmp rbx, 0
     jl .end_jge
     mov rsi, [rsi]
     add rsi, rdi

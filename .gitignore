@@ -1,4 +1,4 @@
-tests/tests.exe
+tests/test.exe
 build/bin/*
 build/obj/*
 runtime.dll

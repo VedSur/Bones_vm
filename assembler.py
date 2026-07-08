@@ -22,7 +22,9 @@ def assemble_line(line: str, opcodes: dict[str, int], line_no: int) -> tuple[byt
     output = b""
     if line == "" or line.isspace(): return b"", ""
     line_list = line.split(maxsplit=1)
-    output += opcodes[line_list[0]].to_bytes(2, "little")
+    try: output += opcodes[line_list[0]].to_bytes(2, "little")
+    except KeyError as e:
+        basm_error(f"Invalid operation \"{e.args[0]}\"", line_no, line)
     if len(line_list) == 2 and [line_list[1]+":"] == re.findall(LABEL_PATTERN, line_list[1]+":"):
         output += (0).to_bytes(8, "little", signed=True)
         return output, line_list[1]

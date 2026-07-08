@@ -46,7 +46,7 @@ def get_runtime_asm() -> str:
 def get_runtime_insts_asm() -> tuple[str, str]:
     find_insts_asm, exec_insts_asm = "", ""
     for opcode, inst in enumerate(INSTS.keys(), 0):
-        find_insts_asm += f"    cmp bx, {opcode}\n    je .i_{inst}\n"
+        find_insts_asm += f"    cmp bx, {hex(opcode)}\n    je .i_{inst}\n"
         exec_insts_asm += f"    .i_{inst}:\n{INSTS[inst]}    jmp ._loop\n\n"
     return find_insts_asm, exec_insts_asm
 

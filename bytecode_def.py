@@ -14,19 +14,19 @@ JMP = "    mov rsi, [rsi]\n    add rsi, rdi\n"
 GET_FLAGS = "   pop rbx\n    cmp rbx, 0\n"
 
 def make_64b_reg_inst(name_template: str, asm_code_template: str) -> dict[str, str]:
-    insts: dict[str, str] = {}
+    OPERATIONS: dict[str, str] = {}
     for reg in REGS_64bit:
-        insts[name_template.replace("{reg}", reg)] = asm_code_template.replace("{reg}", reg)
-    return insts
+        OPERATIONS[name_template.replace("{reg}", reg)] = asm_code_template.replace("{reg}", reg)
+    return OPERATIONS
 
 def make_64b_reg_pair_inst(name_template: str, asm_code_template: str) -> dict[str, str]:
-    insts: dict[str, str] = {}
+    OPERATIONS: dict[str, str] = {}
     for reg1 in REGS_64bit:
         for reg2 in REGS_64bit:
-            insts[name_template.replace("{reg1}", reg1).replace("{reg2}", reg2)] = asm_code_template.replace("{reg1}", reg1).replace("{reg2}", reg1)
-    return insts
+            OPERATIONS[name_template.replace("{reg1}", reg1).replace("{reg2}", reg2)] = asm_code_template.replace("{reg1}", reg1).replace("{reg2}", reg1)
+    return OPERATIONS
 
-INSTS = combine_dicts(
+OPERATIONS = combine_dicts(
     {
         "exit":     "    jmp ._return\n",
         "nop":      ""

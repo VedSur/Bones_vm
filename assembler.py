@@ -1,4 +1,4 @@
-from bytecode_def import INSTS
+from bytecode_def import OPERATIONS
 import re, os
 
 LABEL_PATTERN = r"([A-Za-z_][A-Za-z0-9-]*\:)"
@@ -46,7 +46,7 @@ def assemble(basm_source_: str) -> bytes:
         labels_used[label[:-1]] = []
     lines = basm_source.splitlines()
     output_of_line: bytes = b""
-    for i, oper in enumerate(INSTS.keys(), 0):
+    for i, oper in enumerate(OPERATIONS.keys(), 0):
         opcodes[oper] = i
     for line_no, line in enumerate(lines):
         if re.findall(LABEL_PATTERN, line) != []: labels[line[:-1]] = len(output)

@@ -19,10 +19,10 @@ run:
     ._loop:
     mov bx, word [rsi]
     add rsi, 2
-<find insts>
+<find OPERATIONS>
 <invalid inst handler>
 
-<exec insts>
+<exec OPERATIONS>
     ._return:
     leave
     ret
@@ -38,16 +38,16 @@ INVALID_HANDLER = """
 def get_runtime_asm() -> str:
     runtime_asm: str = RUNTIME_ASM_TEMPLATE
     find_insts_asm, exec_insts_asm = get_runtime_insts_asm()
-    runtime_asm = runtime_asm.replace("<find insts>", find_insts_asm)
-    runtime_asm = runtime_asm.replace("<exec insts>", exec_insts_asm)
+    runtime_asm = runtime_asm.replace("<find OPERATIONS>", find_insts_asm)
+    runtime_asm = runtime_asm.replace("<exec OPERATIONS>", exec_insts_asm)
     runtime_asm = runtime_asm.replace("<invalid inst handler>", INVALID_HANDLER)
     return runtime_asm
 
 def get_runtime_insts_asm() -> tuple[str, str]:
     find_insts_asm, exec_insts_asm = "", ""
-    for opcode, inst in enumerate(INSTS.keys(), 0):
+    for opcode, inst in enumerate(OPERATIONS.keys(), 0):
         find_insts_asm += f"    cmp bx, {hex(opcode)}\n    je .i_{inst}\n"
-        exec_insts_asm += f"    .i_{inst}:\n{INSTS[inst]}    jmp ._loop\n\n"
+        exec_insts_asm += f"    .i_{inst}:\n{OPERATIONS[inst]}    jmp ._loop\n\n"
     return find_insts_asm, exec_insts_asm
 
 def writefile(name: str, text: str):

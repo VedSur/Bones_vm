@@ -74,6 +74,3 @@ def assemble_file(source_path: str, target_path: str) -> None:
 
 def assembler_main(argv: list[str]) -> None:
     assemble_file(argv[1], argv[2])
-
-if __name__ == "__main__":
-    assembler_main(sys.argv)

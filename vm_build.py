@@ -20,7 +20,7 @@ run_on_bvm:
     mov bx, [rsi]
     add rsi, 2
 <find OPERATIONS>
-<invalid inst handler>
+<invalid oper handler>
 
 <exec OPERATIONS>
     ._return:
@@ -37,37 +37,43 @@ INVALID_HANDLER = """
     jmp ._return
 """
 
-def get_runtime_asm() -> str:
+def get_vm_asm() -> str:
     runtime_asm: str = RUNTIME_ASM_TEMPLATE
-    find_insts_asm, exec_insts_asm = get_runtime_insts_asm()
+    find_insts_asm, exec_insts_asm = get_vm_oper_asm()
     runtime_asm = runtime_asm.replace("<find OPERATIONS>", find_insts_asm)
     runtime_asm = runtime_asm.replace("<exec OPERATIONS>", exec_insts_asm)
-    runtime_asm = runtime_asm.replace("<invalid inst handler>", INVALID_HANDLER)
+    runtime_asm = runtime_asm.replace("<invalid oper handler>", INVALID_HANDLER)
     return runtime_asm
 
-def get_runtime_insts_asm() -> tuple[str, str]:
+def get_vm_oper_asm() -> tuple[str, str]:
     find_insts_asm, exec_insts_asm = "", ""
-    for opcode, inst in enumerate(OPERATIONS.keys(), 0):
-        find_insts_asm += f"    cmp bx, {hex(opcode)}\n    je .i_{inst}\n"
-        exec_insts_asm += f"    .i_{inst}:\n{OPERATIONS[inst]}    jmp ._loop\n\n"
+    for opcode, oper in enumerate(OPERATIONS.keys(), 0):
+        find_insts_asm += f"    cmp bx, {hex(opcode)}\n    je .i_{oper}\n"
+        exec_insts_asm += f"    .i_{oper}:\n{OPERATIONS[oper]}    jmp ._loop\n\n"
     return find_insts_asm, exec_insts_asm
 
 def writefile(name: str, text: str):
     with open(name, "w") as f:
         f.write(text)
 
-def generate_bvm() -> None:
-    if   os.name == "nt":    writefile(__file__.replace("vm_gen.py", "") + "build\\src\\bvm.asm", get_runtime_asm())
-    elif os.name == "posix": writefile(__file__.replace("vm_gen.py", "") + "build/src/bvm.asm",   get_runtime_asm())
-    os.system("nasm -fwin64 build/src/bvm.asm -o build/obj/bvm.o")
+def build_bvm(document: bool = False) -> None:
+    if   os.name == "nt":    writefile(__file__.replace("vm_build.py", "") + "build\\src\\bvm.asm", get_vm_asm())
+    elif os.name == "posix": writefile(__file__.replace("vm_build.py", "") + "build/src/bvm.asm",   get_vm_asm())
     if os.name == "nt":
+        os.system("nasm -fwin64 build/src/bvm.asm -o build/obj/bvm.o")
         os.system("gcc -fPIC -shared build/obj/bvm.o build/src/bvm_builtins.c -o build/bin/bvm.dll")
     elif sys.platform == "darwin":
+        os.system("nasm -felf64 build/src/bvm.asm -o build/obj/bvm.o")
         os.system("gcc -fPIC -shared build/obj/bvm.o build/src/bvm_builtins.c -o build/bin/bvm.dylib")
     elif sys.platform == "linux":
+        os.system("nasm -fmacho64 build/src/bvm.asm -o build/obj/bvm.o")
         os.system("gcc -fPIC -shared build/obj/bvm.o build/src/bvm_builtins.c -o build/bin/bvm.so")
-
-
-if __name__ == "__main__":
-    generate_bvm()
-    print("BVM-Gen: Generated build/bin/bvm.dll (and build/src/bvm.asm)")
+    if document:
+        print("BVM-Gen: Generated ", end="")
+        if os.name == "nt":
+            print("build/bin/bvm.dll", end="")
+        elif sys.platform == "darwin":
+            print("build/bin/bvm.dylib", end="")
+        elif sys.platform == "linux":
+            print("build/bin/bvm.so", end="")
+        print(" (and build/src/bvm.asm)")    

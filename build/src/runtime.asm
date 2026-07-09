@@ -2309,86 +2309,79 @@ run:
     jmp ._loop
 
     .i_jmp:
-    mov rsi, [rsi]
-    add rsi, rdi
     add rsi, 8
+    mov rsi, [rsi-8]
+    add rsi, rdi
     jmp ._loop
 
     .i_je:
-   pop rbx
-    cmp rbx, 0
-    jne .end_je
-    mov rsi, [rsi]
-    add rsi, rdi
-    .end_je:
     add rsi, 8
+    pop rbx
+    cmp rbx, 0
+    jne ._loop
+    mov rsi, [rsi-8]
+    add rsi, rdi
     jmp ._loop
 
     .i_jz:
-   pop rbx
-    cmp rbx, 0
-    jnz .end_jz
-    mov rsi, [rsi]
-    add rsi, rdi
-    .end_jz:
     add rsi, 8
+    pop rbx
+    cmp rbx, 0
+    jnz ._loop
+    mov rsi, [rsi-8]
+    add rsi, rdi
     jmp ._loop
 
     .i_jne:
-   pop rbx
-    cmp rbx, 0
-    je .end_jne
-    mov rsi, [rsi]
-    add rsi, rdi
-    .end_jne:
     add rsi, 8
+    pop rbx
+    cmp rbx, 0
+    je ._loop
+    mov rsi, [rsi-8]
+    add rsi, rdi
     jmp ._loop
 
     .i_jl:
-   pop rbx
-    cmp rbx, 0
-    jge .end_jl
-    mov rsi, [rsi]
-    add rsi, rdi
-    .end_jl:
     add rsi, 8
+    pop rbx
+    cmp rbx, 0
+    jge ._loop
+    mov rsi, [rsi-8]
+    add rsi, rdi
     jmp ._loop
 
     .i_jg:
-   pop rbx
-    cmp rbx, 0
-    jle .end_jg
-    mov rsi, [rsi]
-    add rsi, rdi
-    .end_jg:
     add rsi, 8
+    pop rbx
+    cmp rbx, 0
+    jle ._loop
+    mov rsi, [rsi-8]
+    add rsi, rdi
     jmp ._loop
 
     .i_jle:
-   pop rbx
-    cmp rbx, 0
-    jg .end_jle
-    mov rsi, [rsi]
-    add rsi, rdi
-    .end_jle:
     add rsi, 8
+    pop rbx
+    cmp rbx, 0
+    jg ._loop
+    mov rsi, [rsi-8]
+    add rsi, rdi
     jmp ._loop
 
     .i_jge:
-   pop rbx
-    cmp rbx, 0
-    jl .end_jge
-    mov rsi, [rsi]
-    add rsi, rdi
-    .end_jge:
     add rsi, 8
+    pop rbx
+    cmp rbx, 0
+    jl ._loop
+    mov rsi, [rsi-8]
+    add rsi, rdi
     jmp ._loop
 
     .i_call:
-    push rsi
-    mov rsi, [rsi]
-    add rsi, rdi
     add rsi, 8
+    push rsi
+    mov rsi, [rsi-8]
+    add rsi, rdi
     jmp ._loop
 
     .i_ret:

@@ -10,8 +10,8 @@ CONSUME_64BIT_VAL = "    add rsi, 8\n"
 
 REGS_64bit = ("rax", "rcx", "rdx", "r8", "r9", "rsp", "rbp")
 
-JMP = "    mov rsi, [rsi]\n    add rsi, rdi\n"
-GET_FLAGS = "   pop rbx\n    cmp rbx, 0\n"
+JMP = "    mov rsi, [rsi-8]\n    add rsi, rdi\n"
+GET_FLAGS = "    pop rbx\n    cmp rbx, 0\n"
 
 def make_64b_reg_inst(name_template: str, asm_code_template: str) -> dict[str, str]:
     OPERATIONS: dict[str, str] = {}
@@ -46,15 +46,15 @@ OPERATIONS = combine_dicts(
     make_64b_reg_pair_inst("cmp_{reg1}_{reg2}",  "    mov rbx, {reg1}\n    sub rbx, {reg2}\n    push rbx\n"),
     make_64b_reg_pair_inst("dref_{reg1}_{reg2}", "    mov {reg1}, [{reg2}]\n"),
     {
-        "jmp":         JMP + CONSUME_64BIT_VAL,
-        "je":          GET_FLAGS + "    jne .end_je\n" + JMP + "    .end_je:\n" + CONSUME_64BIT_VAL,
-        "jz":          GET_FLAGS + "    jnz .end_jz\n" + JMP + "    .end_jz:\n" + CONSUME_64BIT_VAL,
-        "jne":         GET_FLAGS + "    je .end_jne\n" + JMP + "    .end_jne:\n" + CONSUME_64BIT_VAL,
-        "jl":          GET_FLAGS + "    jge .end_jl\n" + JMP + "    .end_jl:\n" + CONSUME_64BIT_VAL,
-        "jg":          GET_FLAGS + "    jle .end_jg\n" + JMP + "    .end_jg:\n" + CONSUME_64BIT_VAL,
-        "jle":         GET_FLAGS + "    jg .end_jle\n" + JMP + "    .end_jle:\n" + CONSUME_64BIT_VAL,
-        "jge":         GET_FLAGS + "    jl .end_jge\n" + JMP + "    .end_jge:\n" + CONSUME_64BIT_VAL,
-        "call":        "    push rsi\n" + JMP + CONSUME_64BIT_VAL,
+        "jmp":         CONSUME_64BIT_VAL + JMP,
+        "je":          CONSUME_64BIT_VAL + GET_FLAGS + "    jne ._loop\n" + JMP,
+        "jz":          CONSUME_64BIT_VAL + GET_FLAGS + "    jnz ._loop\n" + JMP,
+        "jne":         CONSUME_64BIT_VAL + GET_FLAGS + "    je ._loop\n" + JMP,
+        "jl":          CONSUME_64BIT_VAL + GET_FLAGS + "    jge ._loop\n" + JMP,
+        "jg":          CONSUME_64BIT_VAL + GET_FLAGS + "    jle ._loop\n" + JMP,
+        "jle":         CONSUME_64BIT_VAL + GET_FLAGS + "    jg ._loop\n" + JMP,
+        "jge":         CONSUME_64BIT_VAL + GET_FLAGS + "    jl ._loop\n" + JMP,
+        "call":        CONSUME_64BIT_VAL + "    push rsi\n" + JMP,
         "ret":         "    pop rsi\n",
         "leave":       "    leave\n",
         "enter":       "    push rbp\n    mov rbp, rsp\n",

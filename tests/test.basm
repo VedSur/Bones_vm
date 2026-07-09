@@ -4,6 +4,6 @@ nop
 
 func:
     enter
-    mov_rax_t 0
+    mov_rax_t 1
     leave
     ret

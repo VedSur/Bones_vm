@@ -59,7 +59,13 @@ def writefile(name: str, text: str):
 def generate_bvm() -> None:
     writefile("build/src/bvm.asm",get_runtime_asm())
     os.system("nasm -fwin64 build/src/bvm.asm -o build/obj/bvm.o")
-    os.system("gcc -fPIC -shared build/obj/bvm.o build/src/bvm_builtins.c -o build/bin/bvm.dll")
+    if os.name == "nt":
+        os.system("gcc -fPIC -shared build/obj/bvm.o build/src/bvm_builtins.c -o build/bin/bvm.dll")
+    elif sys.platform == "darwin":
+        os.system("gcc -fPIC -shared build/obj/bvm.o build/src/bvm_builtins.c -o build/bin/bvm.dylib")
+    elif sys.platform == "linux":
+        os.system("gcc -fPIC -shared build/obj/bvm.o build/src/bvm_builtins.c -o build/bin/bvm.so")
+
 
 if __name__ == "__main__":
     generate_bvm()

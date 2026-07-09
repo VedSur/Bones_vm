@@ -55,9 +55,9 @@ OPERATIONS = combine_dicts(
         "jle":         CONSUME_64BIT_VAL + GET_FLAGS + "    jg ._loop\n" + JMP,
         "jge":         CONSUME_64BIT_VAL + GET_FLAGS + "    jl ._loop\n" + JMP,
         "call":        CONSUME_64BIT_VAL + "    push rsi\n" + JMP,
+        "extern_call": CONSUME_64BIT_VAL + "    push rsi\n    push rdi\n    call [rsi-8]\n    pop rdi\n    pop rsi\n",
         "ret":         "    pop rsi\n",
         "leave":       "    leave\n",
         "enter":       "    push rbp\n    mov rbp, rsp\n",
-        "extern_call": "    push rsi\n    push rdi\n    call [rsi]\n    pop rdi\n   pop rsi\n",
     }
 )

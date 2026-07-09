@@ -1,26 +1,15 @@
 Bones VM
 ===
-A very low level virtual machine that interprets bytecode
-
+A virtual machine that interprets bytecode written in x86_64 intel syntax assembly
 ## Usage
 ### Generating VM source
 - Generation:
 ```bash
-python vm_gen.py gen
+python vm_gen.py
 ```
-
-- Test using tests/test.c:
-```bash 
-python vm_gen.py test
-```
-
-- Both
-```bash
-python vm_gen.py gen_and_test
-```
-This generates "build/bin/runtime.dll" which contains the function:
+This generates "build/bin/bvm.dll" which contains the function:
 ```c
-int64_t run(char bytecode[]); // -> exit code
+int64_t run_on_bvm(int64_t start_index, char *bytecode); // -> exit code
 ```
 
 ### Using Bones assembler(BASM)

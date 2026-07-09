@@ -1,6 +1,12 @@
 tests/test.exe
 build/bin/*
 build/obj/*
-runtime.dll
+bvm.dll
 env/
 __pycache__/
+*.exe
+*.dll
+*.o
+**/*.exe
+**/*.dll
+**/*.o

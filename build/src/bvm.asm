@@ -1,20 +1,20 @@
 
-global run
-extern exec_cmd
-extern invalid_inst
+global run_on_bvm
+extern handle_invalid_bvm_oper
 
 section .text
-run:
+run_on_bvm:
     push rbp
     mov rbp, rsp
     
-    mov rdi, rcx
+    mov rdi, rdx
     mov rsi, rdi
+    add rsi, rcx
 
     mov rbx, 0
     
     ._loop:
-    mov bx, word [rsi]
+    mov bx, [rsi]
     add rsi, 2
     cmp bx, 0x0
     je .i_exit
@@ -739,17 +739,19 @@ run:
     cmp bx, 0x168
     je .i_call
     cmp bx, 0x169
-    je .i_ret
-    cmp bx, 0x16a
-    je .i_leave
-    cmp bx, 0x16b
-    je .i_enter
-    cmp bx, 0x16c
     je .i_extern_call
+    cmp bx, 0x16a
+    je .i_ret
+    cmp bx, 0x16b
+    je .i_leave
+    cmp bx, 0x16c
+    je .i_enter
 
 
     mov cx, bx
-    call invalid_inst
+    mov rdx, rsi
+    sub rdx, rsi
+    call handle_invalid_bvm_oper
     mov rax, 1
     jmp ._return
 
@@ -2384,6 +2386,15 @@ run:
     add rsi, rdi
     jmp ._loop
 
+    .i_extern_call:
+    add rsi, 8
+    push rsi
+    push rdi
+    call [rsi-8]
+    pop rdi
+    pop rsi
+    jmp ._loop
+
     .i_ret:
     pop rsi
     jmp ._loop
@@ -2395,14 +2406,6 @@ run:
     .i_enter:
     push rbp
     mov rbp, rsp
-    jmp ._loop
-
-    .i_extern_call:
-    push rsi
-    push rdi
-    call [rsi]
-    pop rdi
-   pop rsi
     jmp ._loop
 
 

@@ -1,23 +1,23 @@
-import os, sys
+import os
 from bytecode_def import *
 
 RUNTIME_ASM_TEMPLATE = """
-global run
-extern exec_cmd
-extern invalid_inst
+global run_on_bvm
+extern handle_invalid_bvm_oper
 
 section .text
-run:
+run_on_bvm:
     push rbp
     mov rbp, rsp
     
-    mov rdi, rcx
+    mov rdi, rdx
     mov rsi, rdi
+    add rsi, rcx
 
     mov rbx, 0
     
     ._loop:
-    mov bx, word [rsi]
+    mov bx, [rsi]
     add rsi, 2
 <find OPERATIONS>
 <invalid inst handler>
@@ -30,7 +30,9 @@ run:
 
 INVALID_HANDLER = """
     mov cx, bx
-    call invalid_inst
+    mov rdx, rsi
+    sub rdx, rsi
+    call handle_invalid_bvm_oper
     mov rax, 1
     jmp ._return
 """
@@ -54,22 +56,11 @@ def writefile(name: str, text: str):
     with open(name, "w") as f:
         f.write(text)
 
-def main(argv: list[str]) -> None:
-    if argv[1] == "gen":
-        writefile("build/src/runtime.asm",get_runtime_asm())
-        os.system("nasm -fwin64 build/src/runtime.asm -o build/obj/runtime.o")
-        os.system("gcc -fPIC -shared build/obj/runtime.o build/src/runtime_builtins.c -o build/bin/runtime.dll")
-    elif argv[1] == "test":
-        os.add_dll_directory("D:\\Vedant\\1.Projects\\basic_runtime\\build\\bin")
-        os.system("gcc tests/test.c build/bin/runtime.dll -o tests/test.exe")
-        os.system(".\\tests\\test.exe")
-    elif argv[1] == "gen_and_test":
-        writefile("build/src/runtime.asm",get_runtime_asm())
-        os.system("nasm -fwin64 build/src/runtime.asm -o build/obj/runtime.o")
-        os.system("gcc -fPIC -shared build/obj/runtime.o build/src/runtime_builtins.c -o build/bin/runtime.dll")
-        os.system("copy build\\bin\\runtime.dll")
-        os.system("gcc tests/test.c runtime.dll -o tests/test.exe")
-        os.system(".\\tests\\test.exe")
+def generate_bvm():
+    writefile("build/src/bvm.asm",get_runtime_asm())
+    os.system("nasm -fwin64 build/src/bvm.asm -o build/obj/bvm.o")
+    os.system("gcc -fPIC -shared build/obj/bvm.o build/src/bvm_builtins.c -o build/bin/bvm.dll")
 
 if __name__ == "__main__":
-    main(sys.argv)
+    generate_bvm()
+    print("BVM gen: Generated build/bin/bvm.dll (and build/src/bvm.asm)")

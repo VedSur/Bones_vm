@@ -57,7 +57,8 @@ def writefile(name: str, text: str):
         f.write(text)
 
 def generate_bvm() -> None:
-    writefile("build/src/bvm.asm",get_runtime_asm())
+    if   os.name == "nt":    writefile(__file__.replace("vm_gen.py", "") + "build\\src\\bvm.asm", get_runtime_asm())
+    elif os.name == "posix": writefile(__file__.replace("vm_gen.py", "") + "build/src/bvm.asm",   get_runtime_asm())
     os.system("nasm -fwin64 build/src/bvm.asm -o build/obj/bvm.o")
     if os.name == "nt":
         os.system("gcc -fPIC -shared build/obj/bvm.o build/src/bvm_builtins.c -o build/bin/bvm.dll")

@@ -1,6 +1,6 @@
 Bones VM
 ===
-A virtual machine that interprets bytecode written in x86_64 intel syntax assembly
+A virtual machine that interprets bytecode (written in x86_64 intel nasm syntax assembly)
 ## Usage
 ### Generating VM
 - Generation:
@@ -16,4 +16,9 @@ int64_t run_on_bvm(uintptr_t entry_point, char *bytecode);
 
 ```bash
 python assembler.py tests/test.basm tests/tests.bvm.bin
+```
+## Using Bones VM
+
+```bash
+python vm.py tests/tests.bvm.bin
 ```

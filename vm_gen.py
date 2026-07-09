@@ -56,11 +56,11 @@ def writefile(name: str, text: str):
     with open(name, "w") as f:
         f.write(text)
 
-def generate_bvm():
+def generate_bvm() -> None:
     writefile("build/src/bvm.asm",get_runtime_asm())
     os.system("nasm -fwin64 build/src/bvm.asm -o build/obj/bvm.o")
     os.system("gcc -fPIC -shared build/obj/bvm.o build/src/bvm_builtins.c -o build/bin/bvm.dll")
 
 if __name__ == "__main__":
     generate_bvm()
-    print("BVM gen: Generated build/bin/bvm.dll (and build/src/bvm.asm)")
+    print("BVM-Gen: Generated build/bin/bvm.dll (and build/src/bvm.asm)")

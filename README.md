@@ -9,7 +9,7 @@ python vm_gen.py
 ```
 This generates "build/bin/bvm.dll" which contains the function:
 ```c
-int64_t run_on_bvm(int64_t start_index, char *bytecode); // -> exit code
+int64_t run_on_bvm(uintptr_t entry_point, char *bytecode); // -> exit code
 ```
 
 ### Using Bones assembler(BASM)

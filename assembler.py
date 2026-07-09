@@ -1,5 +1,6 @@
+import sys, re, os
 from bytecode_def import OPERATIONS
-import re, os
+from fs_utils import read_file_str, write_to_file_bytes
 
 LABEL_PATTERN = r"([A-Za-z_][A-Za-z0-9-]*\:)"
 
@@ -62,3 +63,17 @@ def assemble(basm_source_: str) -> bytes:
         for use_loc in use_locs:
             output = insert_int64(labels[label], output, use_loc)
     return output
+
+def assemble_from_file(source_path: str) -> bytes:
+    source_code: str = read_file_str(source_path)
+    return assemble(source_code)
+    
+def assemble_file(source_path: str, target_path: str) -> None:
+    output: bytes = assemble_from_file(source_path)
+    write_to_file_bytes(target_path, output)
+
+def assembler_main(argv: list[str]) -> None:
+    assemble_file(argv[1], argv[2])
+
+if __name__ == "__main__":
+    assembler_main(sys.argv)

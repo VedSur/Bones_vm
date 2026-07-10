@@ -1,4 +1,4 @@
-Bones VM
+Beryl VM
 ===
 A virtual machine that interprets bytecode (written in x86_64 intel nasm syntax assembly)
 ## Usage
@@ -11,7 +11,7 @@ python main.py --build
 ```
 This generates "build/bin/bvm.so" or "build/bin/bvm.so" or "build/bin/bvm.dylib" which contains the function:
 ```c
-int64_t run_on_bvm(uintptr_t entry_point, char *bytecode);
+int64_t run_on_bvm(uintptr_t entry_point, char *section_text, char *section_data);
 ```
 
 ### Using Bones assembler(BASM)
@@ -25,4 +25,6 @@ python main.py --basm tests/test.basm tests/tests.bvm.bin
 
 ```bash
 python main.py tests/tests.bvm.bin
+# or 
+./build/bin/bvm_int tests/tests.bvm.bin
 ```

@@ -1,9 +1,19 @@
+section .text
+
 call func
 exit
-nop
 
 func:
     enter
-    mov_rax_t 1
+    mov_rdx_t 10
+    ldd_rcx_t a
+    extern_call 0
+    mov_rax_t 0
     leave
     ret
+
+end .text
+
+section .mdata
+a: "n = %d\0"
+end .mdata

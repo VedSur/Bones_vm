@@ -8,9 +8,9 @@ def combine_dicts(*dicts: dict) -> dict:
 
 CONSUME_64BIT_VAL = "    add rsi, 8\n"
 
-REGS_64bit = ("rax", "rcx", "rdx", "r8", "r9", "rsp", "rbp")
+REGS_64bit = ("rax", "rcx", "rdx", "r8", "r9", "r10", "r11", "rsp", "rbp")
 
-JMP = "    mov rsi, [rsi-8]\n    add rsi, rdi\n"
+JMP = "    mov rsi, [rsi-8]\n    add rsi, [rdi+8]\n"
 GET_FLAGS = "    pop rbx\n    cmp rbx, 0\n"
 
 def make_64b_reg_inst(name_template: str, asm_code_template: str) -> dict[str, str]:
@@ -37,12 +37,19 @@ OPERATIONS = combine_dicts(
     make_64b_reg_inst     ("mov_{reg}_t",        "    mov {reg}, [rsi]\n" + CONSUME_64BIT_VAL),
     make_64b_reg_inst     ("add_{reg}_t",        "    add {reg}, [rsi]\n" + CONSUME_64BIT_VAL),
     make_64b_reg_inst     ("sub_{reg}_t",        "    sub {reg}, [rsi]\n" + CONSUME_64BIT_VAL),
-    make_64b_reg_inst     ("imul_{reg}_t",       "    add {reg}, [rsi]\n" + CONSUME_64BIT_VAL),
+    make_64b_reg_inst     ("imul_{reg}_t",       "    imul {reg}, [rsi]\n" + CONSUME_64BIT_VAL),
+    make_64b_reg_inst     ("and_{reg}_t",        "    and {reg}, [rsi]\n" + CONSUME_64BIT_VAL),
+    make_64b_reg_inst     ("or_{reg}_t",         "    or {reg}, [rsi]\n" + CONSUME_64BIT_VAL),
+    make_64b_reg_inst     ("xor_{reg}_t",        "    xor {reg}, [rsi]\n" + CONSUME_64BIT_VAL),
+    make_64b_reg_inst     ("ldd_{reg}_t",        "    mov {reg}, [rdi+16]\n    add {reg}, [rsi]\n" + CONSUME_64BIT_VAL),
     make_64b_reg_inst     ("cmp_{reg}_t",        "    mov rbx, {reg}\n    sub rbx, [rsi]\n    push rbx\n" + CONSUME_64BIT_VAL),
     make_64b_reg_pair_inst("mov_{reg1}_{reg2}",  "    mov {reg1}, {reg2}\n"),
     make_64b_reg_pair_inst("add_{reg1}_{reg2}",  "    add {reg1}, {reg2}\n"),
     make_64b_reg_pair_inst("sub_{reg1}_{reg2}",  "    sub {reg1}, {reg2}\n"),
-    make_64b_reg_pair_inst("imul_{reg1}_{reg2}", "    sub {reg1}, {reg2}\n"),
+    make_64b_reg_pair_inst("imul_{reg1}_{reg2}", "    imul {reg1}, {reg2}\n"),
+    make_64b_reg_pair_inst("and_{reg1}_{reg2}",  "    and {reg1}, {reg2}\n"),
+    make_64b_reg_pair_inst("or_{reg1}_{reg2}",   "    or {reg1}, {reg2}\n"),
+    make_64b_reg_pair_inst("xor_{reg1}_{reg2}",  "    xor {reg1}, {reg2}\n"),
     make_64b_reg_pair_inst("cmp_{reg1}_{reg2}",  "    mov rbx, {reg1}\n    sub rbx, {reg2}\n    push rbx\n"),
     make_64b_reg_pair_inst("dref_{reg1}_{reg2}", "    mov {reg1}, [{reg2}]\n"),
     {
@@ -55,7 +62,7 @@ OPERATIONS = combine_dicts(
         "jle":         CONSUME_64BIT_VAL + GET_FLAGS + "    jg ._loop\n" + JMP,
         "jge":         CONSUME_64BIT_VAL + GET_FLAGS + "    jl ._loop\n" + JMP,
         "call":        CONSUME_64BIT_VAL + "    push rsi\n" + JMP,
-        "extern_call": CONSUME_64BIT_VAL + "    push rsi\n    push rdi\n    call [rsi-8]\n    pop rdi\n    pop rsi\n",
+        "extern_call": CONSUME_64BIT_VAL + "    push rsi\n    push rdi\n    mov rbx, [rdi+24]\n    add rbx, [rsi-8]\n    call [rbx]\n    pop rdi\n    pop rsi\n",
         "ret":         "    pop rsi\n",
         "leave":       "    leave\n",
         "enter":       "    push rbp\n    mov rbp, rsp\n",

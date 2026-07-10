@@ -18,5 +18,10 @@ def run_vm(bytecode_source_path: str) -> None:
     elif sys.platform == "darwin":
         bvm_dll = ctypes.CDLL(bvm_dir + "./build/bin/bvm.dylib")
     bytecode = read_file_bytes(bytecode_source_path)
-    ec = bvm_dll["run_on_bvm"](ctypes.c_int64(0), ctypes.c_char_p(bytecode))
+    sec_data_ptr = int.from_bytes(bytecode[:4], "little")
+    bytecode = bytecode[4:]
+    sec_text = ctypes.c_char_p(bytecode[:sec_data_ptr])
+    sec_data = ctypes.c_char_p(bytecode[sec_data_ptr:])
+    ec = bvm_dll["run_on_bvm"](ctypes.c_int64(0), sec_text, sec_data)
+    print(ec, sec_text, sec_data)
     os._exit(ec)

@@ -1,4 +1,4 @@
-BVM_DIR =  __file__.replace("fs_util.py", "")
+BVM_DIR =  __file__.replace("fs_utils.py", "")
 
 def read_file_bytes(path: str) -> bytes:
     output: bytes = b""

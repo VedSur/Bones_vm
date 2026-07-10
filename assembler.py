@@ -1,5 +1,5 @@
 import sys, re, os
-from bytecode_def import OPERATIONS
+from bytecode_def import INSTATIONS
 from fs_utils import read_file_str, write_to_file_bytes
 
 LABEL_PATTERN = r"([A-Za-z_][A-Za-z0-9-]*\:)"
@@ -31,7 +31,7 @@ def assemble_text_line(line: str, opcodes: dict[str, int], line_no: int) -> tupl
     line_list = line.split(maxsplit=1)
     try: output += opcodes[line_list[0]].to_bytes(2, "little")
     except KeyError as e:
-        basm_error(f"Invalid operation \"{e.args[0]}\"", line_no, line)
+        basm_error(f"Invalid instation \"{e.args[0]}\"", line_no, line)
     if len(line_list) == 2 and [line_list[1]+":"] == re.findall(LABEL_PATTERN, line_list[1]+":"):
         output += (0).to_bytes(8, "little", signed=True)
         return output, line_list[1]
@@ -55,8 +55,8 @@ def assemble_text(basm_source_: str, data_labels: dict[str, int]) -> bytes:
         labels_used[label] = []
     lines = basm_source.splitlines()
     output_of_line: bytes = b""
-    for i, oper in enumerate(OPERATIONS.keys(), 0):
-        opcodes[oper] = i
+    for i, inst in enumerate(INSTATIONS.keys(), 0):
+        opcodes[inst] = i
     for line_no, line in enumerate(lines):
         if re.findall(LABEL_PATTERN, line) != []: labels[line[:-1]] = len(output)
         else: 

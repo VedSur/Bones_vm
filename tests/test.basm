@@ -5,10 +5,10 @@ exit
 
 func:
     enter
-    mov_rdx_t 10
-    ldd_rcx_t a
+    mov_rdx 10
+    ldd_rcx a
     extern_call 0
-    mov_rax_t 0
+    mov_rax 0
     leave
     ret
 

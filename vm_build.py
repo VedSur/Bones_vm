@@ -1,5 +1,6 @@
 import os
 from bytecode_def import *
+from fs_utils     import BVM_DIR
 
 RUNTIME_ASM_TEMPLATE = """
 global run_on_bvm_with_desc
@@ -63,10 +64,12 @@ def writefile(name: str, text: str):
         f.write(text)
 
 def build_bvm(document: bool = False) -> None:
-    bvm_dir = __file__.replace("vm_build.py", "")
-    if   os.name == "nt":    writefile(bvm_dir + "build\\src\\bvm.asm", get_vm_asm())
-    elif os.name == "posix": writefile(bvm_dir + "build/src/bvm.asm",   get_vm_asm())
-    os.system(f"gcc {bvm_dir}bvm_int.c {bvm_dir}build/obj/bvm.o -o {bvm_dir}build/bin/bvm_int.exe")
+    if   os.name == "nt":
+        writefile(BVM_DIR + "build\\src\\bvm.asm", get_vm_asm())
+        os.system(f"gcc {BVM_DIR}bvm_int.c {BVM_DIR}build/obj/bvm.o -o {BVM_DIR}build/bin/vm_int.exe")
+    elif os.name == "posix":
+        writefile(BVM_DIR + "build/src/bvm.asm",   get_vm_asm())
+        os.system(f"gcc {BVM_DIR}bvm_int.c {BVM_DIR}build/obj/bvm.o -o {BVM_DIR}build/bin/vm_int.out")
     if os.name == "nt":
         os.system("nasm -fwin64 build/src/bvm.asm -o build/obj/bvm.o")
         os.system("gcc -fPIC -shared build/obj/bvm.o build/src/bvm_builtins.c -o build/bin/bvm.dll")
